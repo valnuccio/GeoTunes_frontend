@@ -141,7 +141,7 @@ const CreateMap = (props) => {
     const [spotToken, setSpotToken] = useState(localStorage.getItem('spotifyAuthToken'));
 
     const { isLoaded, loadError } = useLoadScript({
-        googleMapsApiKey: 'AIzaSyDyHRdd4NQOPirfP_EtTiiK7TTHn1ySYZg',
+        googleMapsApiKey: process.env.REACT_APP_API_KEY,
         libraries
     });
 

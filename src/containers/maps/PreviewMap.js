@@ -81,7 +81,7 @@ const [markers, setMarkers] = useState([])
 const [selected, setSelected] = useState(null)
 
 const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyDyHRdd4NQOPirfP_EtTiiK7TTHn1ySYZg',
+    googleMapsApiKey: process.env.REACT_APP_API_KEY,
     libraries
 });
 
