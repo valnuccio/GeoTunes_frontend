@@ -18,10 +18,11 @@ const Nav = (props) => {
 
   return(
     <Menu id='mainNav'>
+
       <Menu.Item>
-        <NavLink to={'/home'}>
-          <Button>Home</Button>
-        </NavLink>
+          <NavLink to={'/home'}>
+              <Button>Home</Button>
+          </NavLink>
         
       </Menu.Item>
 
@@ -32,11 +33,8 @@ const Nav = (props) => {
             {!props.createMode ? 
                 <Button>Create Path</Button> 
                 :
-                <Button
-                  onClick={props.createPath}
-                >
-                  Submit Path</Button>
-              }
+                <Button onClick={props.createPath}> Submit Path</Button>
+            }
           </NavLink>
         )
         :
@@ -54,9 +52,7 @@ const Nav = (props) => {
       </Menu.Item>
 
       <Menu.Item>
-        <Button
-          onClick = {props.logOutHandler}
-          >Sign out</Button>
+        <Button onClick = {props.logOutHandler}> Sign out</Button>
       </Menu.Item>
     </Menu>
   )

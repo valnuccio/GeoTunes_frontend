@@ -14,7 +14,9 @@ const LoginForm  = (props) => {
     
     
     const updateState = (e) =>{
+
         switch(e.target.name) {
+
             case "username":
                 setUsername(e.target.value)
                 break;
@@ -28,12 +30,14 @@ const LoginForm  = (props) => {
 
     const handleUserInfo = (e) =>{
         e.preventDefault();
+
         let userObj = {
             username: username,
             password: password
         };
 
         props.loginHandler(userObj);
+
         setUsername('');
         setPassword('');
     };
@@ -42,33 +46,39 @@ const LoginForm  = (props) => {
     return(
         
         <Segment inverted id='loginSegment'>
+
             <Form inverted id = 'loginForm' onSubmit={handleUserInfo}>
+
                 <LoginHeader />
 
-                <Form.Group widths='equal'>
-                
-                    <Form.Input 
-                        className='formText' 
-                        type='text' 
-                        fluid 
-                        label='Username' 
-                        placeholder='username' 
-                        value={username} 
-                        onChange={updateState} 
-                        name="username"
-                    />
-                    <Form.Input 
-                        className='formText' 
-                        type='password' fluid label='password' 
-                        placeholder='password' 
-                        value={password} 
-                        onChange={updateState} 
-                        name="password"
-                    />
-                </Form.Group>
+                    <Form.Group widths='equal'>
+                    
+                        <Form.Input 
+                            className='formText' 
+                            type='text' 
+                            fluid 
+                            label='Username' 
+                            placeholder='username' 
+                            value={username} 
+                            onChange={updateState} 
+                            name="username"
+                        />
+                        <Form.Input 
+                            className='formText' 
+                            type='password' fluid label='password' 
+                            placeholder='password' 
+                            value={password} 
+                            onChange={updateState} 
+                            name="password"
+                        />
+                    </Form.Group>
+
                 <Button class = 'formBtn' type='Login'>Login</Button>
+
                 <br></br>
+
                 <Link to='/signUp' type ='button'>
+
                     <Button
                         id='registerBtn'
                         class = 'formbtn' 
@@ -76,8 +86,11 @@ const LoginForm  = (props) => {
                     >
                     Or Click to Register
                     </Button>
+
                 </Link>
+
             </Form>
+            
         </Segment>
     )
 }

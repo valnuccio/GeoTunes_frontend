@@ -8,11 +8,10 @@ import { List, Segment } from 'semantic-ui-react';
 const GeoPlayer = (props) => {
 
     const [token, setToken] = useState(localStorage.getItem('spotifyAuthToken'));
+    const [currentPL, setCurrentPL] = useState(props.playlist);
 
     useEffect(() => setToken(localStorage.getItem('spotifyAuthToken'))
     ,[])
-
-    const [currentPL, setCurrentPL] = useState(props.playlist);
 
     useEffect(() => setCurrentPL(props.playlist)
     ,[props.playlist])
@@ -51,8 +50,11 @@ const GeoPlayer = (props) => {
                         ) : null
                     }
                 </User>
+
                 <SpotifyApiContext.Provider value={token}> 
+
                 <PlaylistTracks id={props.playlist.split(':')[2]}>
+
                 {
                     (tracks) => {
                         if (tracks.data) {
@@ -73,8 +75,6 @@ const GeoPlayer = (props) => {
                                 </List.Content>
                             ))
 
-
-
                             return (
                                 <Segment inverted>
                                     
@@ -87,11 +87,13 @@ const GeoPlayer = (props) => {
                                     </Playlist>
 
                                     Songs:
+
                                     <List divided inverted relaxed>
                                         <List.Item>
                                                 {mappedTracks}
                                         </List.Item>
                                     </List>
+                                    
                                 </Segment>
                             )
                     

@@ -7,6 +7,9 @@ const UpdateRouteToggleButton = (props) => {
     const [cords, setCords] = useState(props.cords);
     const [updatedUser, setUpdatedUser] = useState(props.user);
     const [updatedRoute, setUpdatedRoute] = useState(null);
+    const [editSaveToggle, toggleEditSave] = useState(true);
+    const [favToggle, setFavToggle] = useState(isFavorited());
+
     useEffect(() => {
         setCords(props.cords);
     }, [props.cords]);
@@ -32,8 +35,6 @@ const UpdateRouteToggleButton = (props) => {
         return !routeIDS.includes(props.routeID)
     }
 
-    const [editSaveToggle, toggleEditSave] = useState(true);
-    const [favToggle, setFavToggle] = useState(isFavorited());
     
     const isRouteMine = () => {
 
@@ -57,6 +58,7 @@ const UpdateRouteToggleButton = (props) => {
             .then()
             
         }
+
         setFavToggle(false)
         setUpdatedRoute(current => ({users: [...current.users, 'who cares']}))
         
@@ -78,6 +80,7 @@ const UpdateRouteToggleButton = (props) => {
             .then()
             
         } 
+
         setFavToggle(true)
         setUpdatedRoute(current => {
             let oneLess = current.users.slice(0, - 1)
@@ -100,18 +103,19 @@ const UpdateRouteToggleButton = (props) => {
                         props.toggle()
                     }}
                 >
-                    <Button
-                    style={{width: '100%'}}
-                     color= 'blue'>
-                        <Icon name='edit' />
-                        Edit My Route
-                    </Button>
-                    <Label 
-                        as='a' 
-                        color='blue' 
-                        pointing='left'>
-      
-                    </Label>
+                        <Button
+                            style={{width: '100%'}}
+                            color= 'blue'>
+                                <Icon name='edit' />
+                                Edit My Route
+                        </Button>
+
+                        <Label 
+                            as='a' 
+                            color='blue' 
+                            pointing='left'>
+                        </Label>
+
                 </Button>
             ) 
             : (
@@ -125,22 +129,23 @@ const UpdateRouteToggleButton = (props) => {
                     
                     }}
                 >
-                    <Button 
-                        style={{width: '100%'}}
-                        color='green'
-                        id='saveButton'
-                        >
-                        
-                        <Icon name='edit' />
-                        Save my Route
-                    </Button>
+                        <Button 
+                            style={{width: '100%'}}
+                            color='green'
+                            id='saveButton'
+                            >
+                            
+                            <Icon name='edit' />
+                            Save my Route
+                        </Button>
+
                         <Label 
-                        as='a' 
-                        basic color='green' 
-                        pointing='left'>
-                        <Icon name='headphones' />
+                            as='a' 
+                            basic color='green' 
+                            pointing='left'>
+                            <Icon name='headphones' />
                         </Label>
-                    </Button>
+                </Button>
             )}
             
             
@@ -150,23 +155,26 @@ const UpdateRouteToggleButton = (props) => {
         (
             updatedUser && favToggle ? (
                 <Button onClick={favRoute} as='div' labelPosition='right'>
-                <Button id="fave-button" color='red'>
-                    <Icon id="fave-button" name='heart' />
-                    Favorite This Route
-                </Button>
-                    <Label as='a' basic color='red' pointing='left' id="fave-button">
-                        {updatedRoute && updatedRoute.users ? updatedRoute.users.length : null}
-                    </Label>
+
+                    <Button id="fave-button" color='red'>
+                        <Icon id="fave-button" name='heart' />
+                        Favorite This Route
+                    </Button>
+                    
+                        <Label as='a' basic color='red' pointing='left' id="fave-button">
+                            {updatedRoute && updatedRoute.users ? updatedRoute.users.length : null}
+                        </Label>
                 </Button>
             ) : (
                 <Button onClick={unFavRoute} as='div' labelPosition='right'>
-                <Button id="fave-button" color='red'>
-                    <Icon id="fave-button" name='heart' />
-                    Unfavorite This Route
-                </Button>
-                    <Label as='a' basic color='red' pointing='left' id="fave-button">
-                    {updatedRoute && updatedRoute.users ? updatedRoute.users.length : null}
-                    </Label>
+                    <Button id="fave-button" color='red'>
+                        <Icon id="fave-button" name='heart' />
+                        Unfavorite This Route
+                    </Button>
+
+                        <Label as='a' basic color='red' pointing='left' id="fave-button">
+                        {updatedRoute && updatedRoute.users ? updatedRoute.users.length : null}
+                        </Label>
                 </Button>
             )
         )
@@ -177,12 +185,3 @@ const UpdateRouteToggleButton = (props) => {
 
 export default UpdateRouteToggleButton
 
-//   <Button as='div' labelPosition='right'>
-//             <Button color='red'>
-//               <Icon name='save' />
-//               Favorite this Route
-//             </Button>
-//             <Label as='a' basic color='red' pointing='left'>
-//               2,048
-//             </Label>
-//           </Button>
