@@ -1,0 +1,20 @@
+
+#showPageBody > div.ui.inverted.segment {
+    max-height: 20%;
+    overflow: scroll;
+    margin: 0;
+}
+
+#showPageBody > div.ui.right.labeled.button > button {
+    width: 100%;
+}
+
+#root > div.ui.menu {
+    margin: 0rem;
+}
+#showPageBody {
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

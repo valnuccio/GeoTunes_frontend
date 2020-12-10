@@ -1,0 +1,9 @@
+#mapHeader {
+    position: absolute;
+    top: 10rem;
+    left: 1rem;
+    color: white;
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+}

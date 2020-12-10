@@ -1,0 +1,85 @@
+@font-face {
+    font-family: lequire;
+    src: url('./fonts/Lequire.otf') format("opentype");
+}
+body {
+    background-color: #394032;
+    width: auto;
+    height: max-height;
+    display: flex;
+    justify-content: center;
+}
+
+#loginSegment {
+    background: #ED771D;
+    height:20%;
+    
+   
+}
+
+#loginForm {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    
+
+}
+
+
+#root > div.search > div > input {
+    top: 100%;
+    position: relative;
+    width: 96%;
+    height:45px;
+
+}
+
+
+#loginIcon {
+    color: #FFFFFA;
+}
+
+#loginHeader{
+  
+    color: #FFFFFA;
+    font-family: lequire;
+}
+
+#loginSubHeader {
+
+    color: #050505;
+}
+#loginForm .formText label {
+    color: #9FDAE5;
+}
+#termsCheckBox label {
+    color: #BECEDB;
+}
+
+.formbtn {
+    
+    background-color: #BECEDB;
+}
+
+#registerBtn {
+    width: 100%;
+}
+
+#previewContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+
+.locate {
+    
+    height:45px;
+    width: 52px;
+    position: relative;
+    bottom:3.2rem;
+    left:98%;
+    transform: translateX(-50%);
+    z-index:10;
+}
+
