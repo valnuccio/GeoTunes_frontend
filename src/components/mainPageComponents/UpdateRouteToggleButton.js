@@ -7,8 +7,7 @@ const UpdateRouteToggleButton = (props) => {
     const [cords, setCords] = useState(props.cords);
     const [updatedUser, setUpdatedUser] = useState(props.user);
     const [updatedRoute, setUpdatedRoute] = useState(null);
-    const [editSaveToggle, toggleEditSave] = useState(true);
-    const [favToggle, setFavToggle] = useState(isFavorited());
+   
 
     useEffect(() => {
         setCords(props.cords);
@@ -34,7 +33,9 @@ const UpdateRouteToggleButton = (props) => {
         let routeIDS = updatedUser.fav_routes.map(r => r.play_route_id)
         return !routeIDS.includes(props.routeID)
     }
-
+    
+    const [editSaveToggle, toggleEditSave] = useState(true);
+    const [favToggle, setFavToggle] = useState(isFavorited());
     
     const isRouteMine = () => {
 
