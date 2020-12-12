@@ -60,9 +60,8 @@ const ProfileContainer = (props) => {
             <Header id='logoHeader' as='h2' icon>
                         <Icon name='globe' />
                         {props.user.user.name}'s Profile 
-                        <Header.Subheader id='logoSubHeader'>
-                        click on any route title to preview
-                        </Header.Subheader>
+                       
+                    
             </Header>
             <Nav user={props.user} logOutHandler={props.logOutHandler} />
             </div>
@@ -75,7 +74,7 @@ const ProfileContainer = (props) => {
                      <Segment inverted>
                         <Header as='h2' icon='map pin' content='My Routes:' />
                     </Segment>
-                    {console.log(updatedProfile.user)}
+                    {updatedProfile.user.play_routes.length >0? (
                     <List>
                     <div class="ui raised segments">
                     {
@@ -97,16 +96,17 @@ const ProfileContainer = (props) => {
                         })
                     }
                     </div>
-                    </List>
+                    </List>)
+                    :
+                    <p>Looks like you don't have any routes created yet! Check out "Create Path" on the Nav Bar to make some</p>}
 
                     <Segment inverted>
                         <Header as='h2' icon='heartbeat' content='Favorite Routes' />
                     </Segment>
-               
-                    <List>
+                    {updatedProfile.user.routes.length>0? (                    <List>
                     <div class="ui raised segments">
                     {
-
+                            
                         updatedProfile.user.routes.map( (r, i) => {
                             return(
                                 <div class="ui segment">
@@ -125,16 +125,29 @@ const ProfileContainer = (props) => {
                         })
                     }
                     </div>
-                    </List>
+                    </List>):
+                    <p> Looks like you don't have any routes Favorited yet!</p>}
          
-                    
-                    <Header id='itunesHeader' as='h4' icon>
-                        <Icon name='itunes' />
-                        Selected Play Route:
-                        <Header.Subheader id='logoSubHeader'>
-                            {playListName}
-                        </Header.Subheader>
-                    </Header>
+                    {playListName!=""?(
+                    <>
+                            <Header id='itunesHeader' as='h4' icon>
+                                <Icon name='itunes' />
+                                Selected Play Route:
+                                <Header.Subheader id='logoSubHeader'>
+                                    {playListName}
+                                </Header.Subheader>
+                            </Header>
+                    </>):null}
+
+                    {updatedProfile.user.routes.length>0 &&  updatedProfile.user.play_routes.length>0? (
+                        <h2>Select a Route to Begin </h2>):null
+                    }
+
+                    {!updatedProfile.user.routes.length>0 &&  !updatedProfile.user.play_routes.length>0? (
+                        <h2>Use the map below by adding routes to your profile</h2>):null
+                    }
+
+
                     <ShowMap showMarkers={markers} getData={()=>null} getCords={() => null} />
                     
                     <SpotifyApiContext.Provider value={localStorage.getItem('spotifyAuthToken')}> 
@@ -193,7 +206,8 @@ const ProfileContainer = (props) => {
                             )
                     
                         } else {
-                            return <h2>PlayList Will Load Here On Selection</h2>
+                            
+                            return null
                         }
                     }
                 }

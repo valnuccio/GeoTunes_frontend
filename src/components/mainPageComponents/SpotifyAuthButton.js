@@ -1,10 +1,12 @@
 import React from 'react';
 import { SpotifyAuth } from 'react-spotify-auth';
 
+
 const SpotifyAuthButton = (props) => {
     
 
     return(
+   
         <SpotifyAuth
                         title={props.header}
                         redirectUri={props.redirectUri}
@@ -20,8 +22,10 @@ const SpotifyAuthButton = (props) => {
 
                         ]} 
                         localStorage = {true}
+
                         noCookie = {true}
         />
+      
     )
 }
 

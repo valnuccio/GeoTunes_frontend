@@ -25,7 +25,7 @@ import{
 } from "@reach/combobox";
 
 import "@reach/combobox/styles.css";
-import '../../customCss/viewMap.css';
+import '../../customCss/map.css';
 
 
 
@@ -190,7 +190,7 @@ const Search = ({panTo}) =>{
             location: { lat: () => 40.7128 , lng: () => -74.0060},
             
             radius: 200 * 1000,
-// check vid at about 28 min
+
         }
     });
 

@@ -7,6 +7,10 @@
 
 }
 
+#root > div > div > div.search > div{
+    width:96%
+}
+
 .locate {
     display: block;
     height:45px;

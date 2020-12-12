@@ -8,6 +8,7 @@ import {
 } from 'semantic-ui-react'
 import '../../src/customCss/homeCss.css'
 import SpotifyAuthScreen from './SpotifyAuthenticationScreen';
+import "@reach/combobox/styles.css";
 
 const HomeContainer = (props) =>{
    

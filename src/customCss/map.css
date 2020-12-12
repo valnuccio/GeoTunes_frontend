@@ -7,3 +7,13 @@
     margin: 0;
     padding: 0;
 }
+
+#root > div > div.search > div > input{
+    width:100%;
+    padding:10px;
+}
+
+#root > div > div > div.search > div > input{
+    width:100%;
+    padding:10px;
+}
