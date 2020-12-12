@@ -1,14 +1,18 @@
 import React from 'react';
 import { SpotifyAuth } from 'react-spotify-auth';
 
-const SpotifyAuthButton = (props) => {
-    
 
-    return(
-        <SpotifyAuth
-                        title={props.header}
-                        redirectUri={props.redirectUri}
-                        clientID='7699a750048847108551359ed7981d8d'
+const SpotifyAuthScreen=()=>{
+
+
+
+    
+    return (
+           
+                    <SpotifyAuth
+                        title={'Register Spotify'}
+                        redirectUri={'http://localhost:3001/'}
+                        clientID={'7699a750048847108551359ed7981d8d'}
                         scopes={[
                             'streaming', 
                             'user-read-email',
@@ -21,8 +25,10 @@ const SpotifyAuthButton = (props) => {
                         ]} 
                         localStorage = {true}
                         noCookie = {true}
-        />
+                     />
+     
+    
     )
 }
 
-export default SpotifyAuthButton
+export default SpotifyAuthScreen

@@ -3,7 +3,7 @@
     src: url('./fonts/Lequire.otf') format("opentype");
 }
 body {
-    background-color: #394032;
+    background-color: f9f9f9;
     width: auto;
     height: max-height;
     display: flex;
@@ -11,7 +11,7 @@ body {
 }
 
 #loginSegment {
-    background: #ED771D;
+    background: #F2BB05;
     height:20%;
     
    
@@ -36,12 +36,12 @@ body {
 
 
 #loginIcon {
-    color: #FFFFFA;
+    color: #124E78;
 }
 
 #loginHeader{
   
-    color: #FFFFFA;
+    color: #124E78;
     font-family: lequire;
 }
 
@@ -50,15 +50,15 @@ body {
     color: #050505;
 }
 #loginForm .formText label {
-    color: #9FDAE5;
+    color: #124E78;
 }
 #termsCheckBox label {
-    color: #BECEDB;
+    color: #124E78;
 }
 
 .formbtn {
     
-    background-color: #BECEDB;
+    background-color: #124E78;
 }
 
 #registerBtn {
@@ -71,6 +71,9 @@ body {
     justify-content: center;
 }
 
+.ui.button {
+    background-color: #124E78;
+}
 
 .locate {
     

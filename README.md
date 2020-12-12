@@ -21,3 +21,8 @@ This app requires you to have a Spotify premium acct to function properly. You c
 
 
  npm install
+
+
+
+
+       

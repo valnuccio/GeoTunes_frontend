@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom'
 import ShowMap from './maps/ShowMap';
 import Nav from '../components/mainPageComponents/Nav';
-import SpotifyPlayer from 'react-spotify-web-playback';
-import { User, Playlist, PlaylistTracks, Artist } from 'react-spotify-api';
+import {Playlist, PlaylistTracks, Artist } from 'react-spotify-api';
 import { SpotifyApiContext } from 'react-spotify-api';
 
 import '../customCss/profile.css'
@@ -16,7 +15,7 @@ import {
     Button
 
 } from 'semantic-ui-react'
-import { set } from 'date-fns';
+
 
 
 

@@ -6,7 +6,7 @@ import useToggle from 'react-use-toggle';
 import Nav from '../components/mainPageComponents/Nav';
 import UpdateRouteToggleButton from '../components/mainPageComponents/UpdateRouteToggleButton';
 import SpotifyAuthButton from '../components/mainPageComponents/SpotifyAuthButton';
-import { Dropdown, Header, Icon, Input  } from 'semantic-ui-react'
+import {Header, Icon} from 'semantic-ui-react'
 import '../customCss/showPage.css'
 
 const RoutesContainer = (props) =>{

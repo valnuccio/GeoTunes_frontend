@@ -113,7 +113,7 @@ const App = (props) => {
   const render = () => {
 
     if(user === 'init') {
-      return <h2></h2>
+      return <h2> </h2>
 
     } else if(!user) {
       return (

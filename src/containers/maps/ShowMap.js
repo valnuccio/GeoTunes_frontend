@@ -42,7 +42,7 @@ const options  = {
 
 
 const ShowMap = (props) => {
-    const center = props .infoView ? ({
+    const center = props.infoView ? ({
         lat: props.showMarkers[0].lat,
         lng: props.showMarkers[0].lng,
     })

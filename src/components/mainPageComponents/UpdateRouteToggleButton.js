@@ -4,14 +4,12 @@ import { getUser, favCreate, playroutes } from '../../railsserver';
 
 const UpdateRouteToggleButton = (props) => {
 
-    const [cords, setCords] = useState(props.cords);
+   
     const [updatedUser, setUpdatedUser] = useState(props.user);
     const [updatedRoute, setUpdatedRoute] = useState(null);
    
 
-    useEffect(() => {
-        setCords(props.cords);
-    }, [props.cords]);
+
 
     useEffect(() => {
         fetch(getUser, {

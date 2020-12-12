@@ -37,11 +37,7 @@ function MapDirectionsRenderer(props) {
         waypoints: waypoints,
       }
 
-      const checkProps = (results) =>{
-        if (props.getData === true){
-          props.getData(results)
-        }
-      }
+      
         
       
 
