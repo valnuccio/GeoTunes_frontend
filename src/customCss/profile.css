@@ -1,26 +1,14 @@
-#logoHeader {
-    color: whitesmoke;
-    text-align: center;
-    
-}
-#logoSubHeader {
-    color: whitesmoke;
+/*  */
 
-}
 
-#headerNav {
-    text-align: center !important;
-}
+
+
 
 #mainNav {
     display: flex;
     justify-content: center;
 }
-root {
 
-    
-    text-shadow: aqua;
-}
 
 #logoHeader {
     font-style: oblique;

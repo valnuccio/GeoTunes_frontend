@@ -136,7 +136,7 @@ const ShowMap = (props) => {
                 center={center}
                 zoom={12}
                 options={options}
-                onClick={onMapClick}
+                
                 onLoad={onMapLoad}
             
                    
@@ -144,11 +144,11 @@ const ShowMap = (props) => {
                 { markers.map((marker, i) => (
                     
                 <Marker 
-                draggable={isDraggable}
+                
                 key={i} 
                 id={i}
                 position={{lat: marker.lat, lng: marker.lng}}
-                //draggable= {true}
+                
                 icon={{
                     url:'/Sound-Wave-Headphones.svg', 
                     scaledSize: new window.google.maps.Size(30,30), 
@@ -156,9 +156,7 @@ const ShowMap = (props) => {
                     anchor: new window.google.maps.Point(15,15),
                    
                 }}
-                // onClick={()=>{
-                //     setSelected(marker);
-                //     }}
+               
 
                     onDragEnd={(e) => {
                         // console.log(marker.lat);
@@ -173,7 +171,7 @@ const ShowMap = (props) => {
                     }} 
                     />
                 ))}
-                {/* {markersdiv.length>1 ? console.log("this is markers:", markers): null } */}
+              
                {markers.length>1? <MapsDirectionsRenderer
                    places={markers}
                     getCords ={props.getCords}

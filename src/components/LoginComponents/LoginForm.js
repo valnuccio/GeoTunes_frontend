@@ -65,7 +65,7 @@ const LoginForm  = (props) => {
                         />
                         <Form.Input 
                             className='formText' 
-                            type='password' fluid label='password' 
+                            type='password' fluid label='Password' 
                             placeholder='password' 
                             value={password} 
                             onChange={updateState} 

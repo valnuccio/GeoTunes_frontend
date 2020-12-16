@@ -9,9 +9,9 @@ const SpotifyAuthScreen=()=>{
 
     
     return (
-        <div id="container" style={styles.container}>
+        <div id="container" >
             <div id="text">
-                <h2>This application relies heavily on the use of a Spotify Acct </h2>
+                <h2>This application relies heavily on the use of a Spotify Premium Acct </h2>
                 <h2> Please click below to login to your Spotify Acct</h2>
             </div>
             <br></br><br></br><br></br>
@@ -32,6 +32,8 @@ const SpotifyAuthScreen=()=>{
                         ]} 
                         localStorage = {true}
                         noCookie = {true}
+                        onAccessToken={(token)=> console.log(token)}
+                        
                      />
      
      </div>
@@ -39,12 +41,7 @@ const SpotifyAuthScreen=()=>{
 }
 
 
-const styles={
-    container:{
-        "align-items":"center",
-        "justify-content":"center"
-}
-}
+
 
 
 export default SpotifyAuthScreen

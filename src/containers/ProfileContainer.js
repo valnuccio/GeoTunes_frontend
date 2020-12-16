@@ -86,9 +86,7 @@ const ProfileContainer = (props) => {
                                     <Icon id={`${r.id}`} name='headphones' />
                                     <List.Content>
                                         <List.Header id={`${r.id}`}>{r.name}</List.Header>
-                                        <List.Description id={`${r.id}`}>
-                                            {r.playlist}
-                                        </List.Description>
+                                      
                                      </List.Content>
                                 </List.Item>
                                 </div>
@@ -114,9 +112,7 @@ const ProfileContainer = (props) => {
                                     <Icon id={`${r.id}`} name='headphones' />
                                     <List.Content>
                                         <List.Header id={`${r.id}`}>{r.name}</List.Header>
-                                        <List.Description id={`${r.id}`}>
-                                            {r.playlist}
-                                        </List.Description>
+                                    
                                      </List.Content>
                                 </List.Item>
                                 </div>

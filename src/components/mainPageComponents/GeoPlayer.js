@@ -9,6 +9,7 @@ const GeoPlayer = (props) => {
 
     const [token, setToken] = useState(localStorage.getItem('spotifyAuthToken'));
     const [currentPL, setCurrentPL] = useState(props.playlist);
+    // const [savedStatus, setStatus] = useState(' ')
 
     useEffect(() => setToken(localStorage.getItem('spotifyAuthToken'))
     ,[])
@@ -19,13 +20,14 @@ const GeoPlayer = (props) => {
     return (
             
         token ? 
-        (
+             (
             <>
-
+                    
                         <SpotifyPlayer
                             uris={[currentPL]}
                             name ='geoPlayer'
                             token={token}
+                            callback={(state)=>{console.log("AAA", state)}}
                             styles={{
                                 bgColor: '#2FA0B1',
                                 color: '#fff',
@@ -34,12 +36,17 @@ const GeoPlayer = (props) => {
                                 savedColor: '#fff',
                                 trackArtistColor: '#ccc',
                                 trackNameColor: '#fff',
+                                
                             }}
-        
+                            
+                            
+
+                            
+                        
                         />
 
 
-
+{/* 
                 <User>
                     {(user, loading, error) =>
                         user.data ? (
@@ -47,9 +54,9 @@ const GeoPlayer = (props) => {
                                 <li>Name - {user.data.display_name}</li>
                                 <li>ID - {user.data.id}</li>
                             </ul>
-                        ) : null
+                        ) : <p id="rejection" style={styles.rejection}> Playlist playback is only available for those with a Premium Spotify Acct. </p>
                     }
-                </User>
+                </User> */}
 
                 <SpotifyApiContext.Provider value={token}> 
 
@@ -120,6 +127,15 @@ const GeoPlayer = (props) => {
        
     )
     
+
+  
+
+}
+
+const styles={
+    rejection: {
+        "align-self": "center"
+}
 }
 
 export default GeoPlayer

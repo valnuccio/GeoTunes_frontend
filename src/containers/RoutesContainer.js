@@ -86,7 +86,7 @@ const RoutesContainer = (props) =>{
                 </div>
                 <div id="other_info_bit">
                     <h2>Time to Walk:</h2>
-                        <p>{`${parseFloat(distance) * 20}` }mintues</p>
+                        <p>{`${parseFloat(distance) * 20}` } minutes</p>
                 </div>
             </div>
         </div>

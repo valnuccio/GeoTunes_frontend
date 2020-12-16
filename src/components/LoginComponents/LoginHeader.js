@@ -7,7 +7,7 @@ const LoginHeader = () => (
 
       <Header.Content>
          GEOTUNES
-           <Header.Subheader id='loginSubHeader'>Login for geo playlists</Header.Subheader>
+           <Header.Subheader id='loginSubHeader'>Login for Geo playlists</Header.Subheader>
        </Header.Content>
        
   </Header>
