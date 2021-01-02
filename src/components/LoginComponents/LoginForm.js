@@ -75,7 +75,7 @@ const LoginForm  = (props) => {
 
                 <Button class = 'formBtn' type='Login'>Login</Button>
 
-                <br></br>
+                <br/>
 
                 <Link to='/signUp' type ='button'>
 

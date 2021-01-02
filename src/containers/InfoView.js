@@ -7,50 +7,6 @@ import "@reach/combobox/styles.css";
 import '../customCss/map.css';
 import SpotifyAuthButton from '../components/mainPageComponents/SpotifyAuthButton';
 
-// import {
-//     GoogleMap,
-//     useLoadScript,
-//     Marker,
-//     InfoWindow,
-
-// } from '@react-google-maps/api';
-// import { formatRelative } from "date-fns";
-
-// import usePlacesAutoComplete, {
-//     getGeocode,
-//     getLatLng,
-// } from "use-places-autocomplete";
-// import MapsDirectionsRenderer from './maps/MapsDirectionsRenderer';
-
-// import{
-//     Combobox,
-//     ComboboxInput,
-//     ComboboxPopover,
-//     ComboboxList,
-//     ComboboxOption,
-// } from "@reach/combobox";
-
-
-
-
-// const libraries = ['places'];
-
-// const mapContainerStyle = {
-//     width: '100vw',
-//     height: '84vh',
-// };
-
-// const center = {
-//     lat: 40.7128,
-//     lng: -74.0060,
-// };
-
-// const options  = {
-//     styles: mapStyle,
-//     disableDefaultUI: true,
-//     zoomControl: true,
-
-// };
 
 
 
@@ -67,7 +23,7 @@ const InfoView = (props) => {
 
     return(
         <div>
-            <ShowMap infoView={true} getData={()=> null} getCords={() => null} showMarkers={props.showMarkers}/>
+            <ShowMap routeId={props.routeID} infoView={true} getData={()=> null} getCords={() => null} showMarkers={props.showMarkers}/>
         <div id ='plContainer'>
                 <NavLink to={`/routes/${props.routeID}`} > 
                     <Button

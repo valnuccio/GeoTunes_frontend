@@ -59,9 +59,9 @@ const App = (props) => {
           throw new Error('User Invalid');
         }
       })
-      .then((rJson) => {
-            setUser(rJson);
-            localStorage.setItem("token", rJson.jwt);
+      .then((existingUserInfo) => {
+            setUser(existingUserInfo);
+            localStorage.setItem("token", existingUserInfo.jwt);
             history.push('/home')
       })
       .catch((error) => {
@@ -85,14 +85,13 @@ const App = (props) => {
 
     fetch(userRoute, options)
     .then(resp => resp.json())
-    .then(newUser => {
+    .then(newUserInfo => {
 
-      if(newUser.jwt){
-        localStorage.setItem("token", newUser.jwt);
+      if(newUserInfo.jwt){
+        localStorage.setItem("token", newUserInfo.jwt);
         setUser(newUser)
         history.push('/home')
       }else {
-        console.log(newUser)
         let error=newUser
         let keys= Object.keys(error)
         let errorMessage= keys.map(
@@ -100,12 +99,6 @@ const App = (props) => {
           alert(errorMessage)
           
       }
-      // } else {
-      //   localStorage.setItem("token", newUser.jwt);
-      //   setUser(newUser)
-      //   history.push('/home')
-      // }
-      
     });
    
   };

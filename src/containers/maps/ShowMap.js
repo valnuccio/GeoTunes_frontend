@@ -9,24 +9,10 @@ import {
     InfoWindow,
 
 } from '@react-google-maps/api';
-import { formatRelative } from "date-fns";
 import MapsDirectionsRenderer from './MapsDirectionsRenderer';
 import "@reach/combobox/styles.css";
 import '../../customCss/map.css';
 
-//import { playroutes as playRoutes } from '../../railsserver'
-//import{
-    //     Combobox,
-    //     ComboboxInput,
-    //     ComboboxPopover,
-    //     ComboboxList,
-    //     ComboboxOption,
-    // } from "@reach/combobox";
-
-    // import usePlacesAutoComplete, {
-//     getGeocode,
-//     getLatLng,
-// } from "use-places-autocomplete";
 
 const libraries = ['places'];
 
@@ -42,63 +28,89 @@ const options  = {
 
 
 const ShowMap = (props) => {
+    const [markers, setMarkers] = useState([]);
+    const [selected, setSelected] = useState(null);
+    const [isDraggable, setDrag] = useState(false);
+
+    useEffect( () => {
+        document.addEventListener("keydown", () => removePin(), false);
+    }, [])
+
+    // listening for changes in the marker values
+    useEffect(() => {
+        setMarkers(props.showMarkers)
+    }, [props.showMarkers])
+
+    // listening for changes in if the markers are draggable
+    useEffect(() => {
+        setDrag(props.draggableVal)
+
+    }, [props.draggableVal])
+ 
+    const mapContainerStyle = {
+
+        // this map is being doubled on the show page and also used on the infobox view. hence the different sizes here. 
+        width: '90vw',
+        height: props.infoView ? '50vh' : '58vh',
+    };
+
     const center = props.infoView ? ({
+
+        // center the view on the first stop in the route
         lat: props.showMarkers[0].lat,
         lng: props.showMarkers[0].lng,
     })
-    : (
+    : 
+    // if not loaded show middle of manhattan
+    (
         {
             lat: 40.7128,
             lng: -74.0060,
         }
     )
 
-    const mapContainerStyle = {
-        width: '90vw',
-        height: props.infoView ? '50vh' : '58vh',
-    };
+  
 
-    
-    
-    useEffect(() => {
-        setMarkers(props.showMarkers)
-    }, [props.showMarkers])
-    useEffect( () => {
-        document.addEventListener("keydown", () => removePin(), false);
-    }, [])
+  
 
-
-    const [isDraggable, setDrag] = useState(false);
-
-    useEffect(() => {
-        setDrag(props.draggableVal)
-
-    }, [props.draggableVal])
 
     const removePin = (e) => {
         if (document.querySelector('#saveButton')) {
+            //when you are editing them this will save the new route
+            //need to add a patch!
             setMarkers(current => current.slice(0, -1))
+
+            
+
+
         }
     }
-    const onMapClick = useCallback((event) => {
-        let counter = 0
-        if (counter < 5) {
-            setMarkers((current)=>[
-                ...current,
-                {
-                    lat: event.latLng.lat(),
-                    lng: event.latLng.lng(),
-                    time: new Date(),
-            },
-        ])
-        counter += 1
+
+
+    // this wasn't working - - - why? must investigate later
+
+    // const onMapClick = useCallback((event) => {
+    //     let counter = 0
+    //     //  no more than 5 points at a time. marker limit
+
+
+    //     if (counter < 5) {
+    //         setMarkers((current)=>[
+    //             ...current,
+    //             {
+    //                 lat: event.latLng.lat(),
+    //                 lng: event.latLng.lng(),
+    //                 time: new Date(),
+    //         },
+    //     ])
+    //     counter += 1
     
-        } else {
-            alert('Max 5 Markers')
-    };
+    //     } else {
+    //         alert('Max 5 Markers')
+    // };
 
     
-    },[]) ; 
+    // },[]) ; 
 
     const mapRef = useRef();
 
@@ -106,13 +118,16 @@ const ShowMap = (props) => {
         mapRef.current=map; 
     },[])
 
+
+
+    // for panning if I want to use it later
+
     // const panTo = useCallback(({lat, lng})=> {
     //     mapRef.current.panTo({lat, lng});
     //     mapRef.current.setZoom(14);
     // },[]);
 
-    const [markers, setMarkers] = useState([]);
-    const [selected, setSelected] = useState(null);
+ 
 
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_API_KEY,
@@ -122,25 +137,24 @@ const ShowMap = (props) => {
 
     if (loadError) return 'Error Loading Maps';
     if (!isLoaded) return 'Loading Maps';
-
+// is returned only once it is loaded
     return (
         <div>
-
-            
-            
-            {/* <Locate panTo={panTo}/>  */}
+           
             <div id='showMap'>
 
             <GoogleMap
-                mapContainerStyle={mapContainerStyle}
-                center={center}
+                mapContainerStyle={mapContainerStyle} //defined above
+                center={center} //defined above
                 zoom={12}
-                options={options}
+                options={options} //defined above
                 
-                onLoad={onMapLoad}
+                onLoad={onMapLoad} //defined above
             
                    
             >
+
+            {/* {plots the markers on the map} */}
                 { markers.map((marker, i) => (
                     
                 <Marker 
@@ -159,9 +173,6 @@ const ShowMap = (props) => {
                
 
                     onDragEnd={(e) => {
-                        // console.log(marker.lat);
-                        // console.log(e.latLng.lat());
-                        // console.log(e.latLng.lng());
                         marker.lat = e.latLng.lat();
                         marker.lng = e.latLng.lng();
                         let updatedMarkers = [...markers];
@@ -171,15 +182,17 @@ const ShowMap = (props) => {
                     }} 
                     />
                 ))}
-              
+
+
+              {/* render that route */}
                {markers.length>1? <MapsDirectionsRenderer
                    places={markers}
                     getCords ={props.getCords}
                     getData={props.getData}
                     /> : null} 
             
-               
-
+               {/* dont think I need this here anymore */}
+{/* 
                 {selected ? 
                 (<InfoWindow position={{lat: selected.lat, lng: selected.lng }} onCloseClick={()=>{
                     setSelected(null);  
@@ -192,30 +205,16 @@ const ShowMap = (props) => {
                             <h2> cords:</h2>
                             <p>lat: {selected.lat}, lng:{selected.lng} </p>
                     </div>
-                </InfoWindow>) : null}
+                </InfoWindow>) : null} */}
+
+
             </GoogleMap>
             </div>
-            {/* {console.log('att the bottom fresh render', markers)} */}
             
         </div>
     );
 }
 
-
-// const Locate= ({panTo}) =>{
-//     return (
-//     <button className="locate" onClick={()=>{
-//         navigator.geolocation.getCurrentPosition((position)=>{
-//             panTo({
-//                 lat: position.coords.latitude,
-//                 lng: position.coords.longitude,
-//             });
-//         }, () => null, options);
-//     }}>
-//         <img src="compass.svg" alt="compass - locate me"/>
-//     </button>
-//     );
-// } 
 
 
 export default ShowMap

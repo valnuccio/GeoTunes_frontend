@@ -8,16 +8,13 @@ import mapStyle from './../../customCss/mapStyle';
 import {
     GoogleMap,
     useLoadScript,
-    Marker,
-    InfoWindow,
-
+    Marker
 } from '@react-google-maps/api';
 import { playroutes as playRoutes } from '../../railsserver';
 import usePlacesAutoComplete, {
     getGeocode,
     getLatLng,
 } from "use-places-autocomplete";
-import InfoView from "../InfoView";
 
 import{
     Combobox,
@@ -58,7 +55,6 @@ const PreviewMap = (props) => {
     const prepPinRender = (prd) => {
         console.log('prd', prd)
         return prd.map((pr, i) => {
-            //console.log('inMap', pr)
             return {
                 lat: pr.pins[0].lat, 
                 lng: pr.pins[0].lng, 
@@ -98,7 +94,6 @@ const panTo = useCallback(({lat, lng})=> {
 },[]);
 
 const [markers, setMarkers] = useState([])
-const [selected, setSelected] = useState(null)
 
 const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_API_KEY,
@@ -190,7 +185,7 @@ const Search = ({panTo}) =>{
             } catch(err ) {
                 console.log("error!")
             }
-      console.log(address)}}
+      }}
         >
             <ComboboxInput value={value} onChange={(e) => {
                 setValue(e.target.value)
