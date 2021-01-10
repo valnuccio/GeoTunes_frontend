@@ -1,12 +1,28 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Form, Segment } from 'semantic-ui-react'
-
+import styled from 'styled-components';
 import LoginHeader from './LoginHeader';
 
 
 
+
+
 const LoginForm  = (props) => {
+
+    const LoginBackDrop = styled.div`
+      background:#00563B;
+      border-radius: 10px;
+      padding: 20px;
+      border-style:outset;
+    `;
+
+    const LoginInputForm = styled.div`
+    display:flex;
+    flex-direction:column;
+    `;
+
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -44,10 +60,10 @@ const LoginForm  = (props) => {
 
     
     return(
-        
-        <Segment inverted id='loginSegment'>
+        <>
+        {/* <LoginBackDrop> */}
 
-            <Form inverted id = 'loginForm' onSubmit={handleUserInfo}>
+            <LoginInputForm  onSubmit={handleUserInfo}>
 
                 <LoginHeader />
 
@@ -89,9 +105,10 @@ const LoginForm  = (props) => {
 
                 </Link>
 
-            </Form>
+            </LoginInputForm>
             
-        </Segment>
+        {/* </LoginBackDrop> */}
+        </>
     )
 }
 

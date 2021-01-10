@@ -89,10 +89,10 @@ const App = (props) => {
 
       if(newUserInfo.jwt){
         localStorage.setItem("token", newUserInfo.jwt);
-        setUser(newUser)
+        setUser(newUserInfo)
         history.push('/home')
       }else {
-        let error=newUser
+        let error=newUserInfo
         let keys= Object.keys(error)
         let errorMessage= keys.map(
           (key) => `${key} ${error[key][0]}`)

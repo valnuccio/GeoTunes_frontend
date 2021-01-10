@@ -67,11 +67,6 @@ body {
     width: 100%;
 }
 
-#previewContainer {
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
 
 .ui.button {
     background-color: #124E78;
