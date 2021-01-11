@@ -6,7 +6,10 @@ import styled from 'styled-components'
 const LoginContainer = (props) => {
 
     const Container=styled.div`
-    z-index:1
+    z-index:1;
+    position:relative;
+    width:40%;
+    margin:05%;
     `
     return(
         <Container>

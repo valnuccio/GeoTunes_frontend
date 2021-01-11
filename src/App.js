@@ -8,6 +8,7 @@ import CreateMap from './containers/maps/CreateMap';
 import RoutesContainer from './containers/RoutesContainer';
 import {getUser as getUserRoute, users as userRoute, login as loginRoute} from './railsserver';
 import ProfileContainer from './containers/ProfileContainer';
+import './index.css'
 
 const App = (props) => {
 
