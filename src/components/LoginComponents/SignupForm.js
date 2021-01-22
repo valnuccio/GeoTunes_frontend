@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Input, Header, Icon} from 'semantic-ui-react';
+import { Form, Input} from 'semantic-ui-react';
 
 const SignupForm = (props) =>{
 
