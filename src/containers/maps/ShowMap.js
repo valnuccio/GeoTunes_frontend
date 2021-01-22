@@ -6,7 +6,7 @@ import {
     GoogleMap,
     useLoadScript,
     Marker,
-    InfoWindow,
+    
 
 } from '@react-google-maps/api';
 import MapsDirectionsRenderer from './MapsDirectionsRenderer';
@@ -29,7 +29,6 @@ const options  = {
 
 const ShowMap = (props) => {
     const [markers, setMarkers] = useState([]);
-    const [selected, setSelected] = useState(null);
     const [isDraggable, setDrag] = useState(false);
 
     useEffect( () => {

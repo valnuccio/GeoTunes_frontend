@@ -60,7 +60,7 @@ const RoutesContainer = (props) =>{
                     setMarkers(cords);
                     setRouteName(route.name)
                 })  
-        },[])
+        },[props.routerID])
     
     const [isDragable, toggle] = useToggle(false);
 
