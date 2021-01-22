@@ -80,7 +80,12 @@ const LoginForm  = (props) => {
 
                     <br/>
                 <br/>
-                <Button id='registerBtn' class = 'formBtn' type='Submit'>Login</Button>
+                <Button 
+                    id='registerBtn' 
+                    class = 'formBtn' 
+                    type='Submit'>
+                        Login
+                </Button>
 
                 <br/>
                 <br/>
