@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import {GlobalStyle} from '../src/theme/globalstyle';
 import { Switch, Route } from 'react-router-dom';
 import { useHistory } from "react-router";
-import SignUp from './components/LoginComponents/Signup';
+
+
+import {GlobalStyle} from '../src/theme/globalstyle';
+
+
 import HomeContainer from './containers/HomeContainer';
 import PreviewContainer from './containers/PreviewContainer';
 import CreateMap from './containers/maps/CreateMap';
 import RoutesContainer from './containers/RoutesContainer';
-import {getUser as getUserRoute, users as userRoute, login as loginRoute} from './railsserver';
 import ProfileContainer from './containers/ProfileContainer';
-import './index.css';
-import styled from 'styled-components';
+
+
+import {getUser as getUserRoute, users as userRoute, login as loginRoute} from './railsserver';
+
 
 const App = (props) => {
 
@@ -106,10 +110,7 @@ const App = (props) => {
    
   };
 
-  // const AppWrapper=styled.div`
 
-   
-  // `
 
   const render = () => {
     
