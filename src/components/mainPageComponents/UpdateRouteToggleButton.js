@@ -25,7 +25,7 @@ const UpdateRouteToggleButton = (props) => {
         })
         .then( r => r.json())
         .then(route => setUpdatedRoute(route))
-    }, [])
+    }, [props.routeID])
 
     const isFavorited = () => {
         let routeIDS = updatedUser.fav_routes.map(r => r.play_route_id)
