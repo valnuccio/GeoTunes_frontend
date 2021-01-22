@@ -57,25 +57,36 @@ return(
                         
                         <Form.Field >
                              <label>Username</label>
-                             <Input fluid value={username} onChange={updateState} name='username'/>
+                             <Input fluid value={username} onChange={updateState} placeholder={"Username"}name='username'/>
                         </Form.Field>
 
                         <Form.Field>
                              <label>Password</label>
-                             <Form.Input className="formText" value={password} type="password" onChange={updateState} name='password'/>
+                             <Form.Input className="formText" value={password} type="password" placeholder={"Password"} onChange={updateState} name='password'/>
                         </Form.Field>
                             
                         <Form.Field>
                             <label>Confirm Password</label>
-                            <Form.Input className="formText" value={confirmation} type="password" onChange={updateState} name='confirmation'/>
+                            <Form.Input className="formText" value={confirmation} type="password" placeholder={"Confirm Password"}onChange={updateState} name='confirmation'/>
                         </Form.Field>
 
                         <Form.Field>
                             <label>Name</label>
-                            <Input fluid value={name} onChange={updateState} name='name'/>
+                            <Input fluid value={name} onChange={updateState} placeholder={"Name"}name='name'/>
                         </Form.Field>
 
-                         <Form.Button content='Submit' id="submitbutton"/>
+                         <Form.Button id="registerBtn" class='formbtn' type='Submit'> Submit</Form.Button>
+                        
+                    
+                          <Form.Button
+                          id='registerBtn'
+                          class = 'formbtn' 
+                          type='SignUp'
+                          onClick={props.switchLogin}
+                      >
+                      Already have an Acct? Login
+                      </Form.Button>
+                        
                         
                     </Form>
                 

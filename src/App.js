@@ -123,8 +123,8 @@ const App = (props) => {
          <GlobalStyle/>
             <Switch>
               
-              <Route path='/signup' render={() => <SignUp signUpHandler={signUpHandler}/>}/>
-              <Route path="/" render={() => <PreviewContainer history={history} loginHandler={loginHandler}/>}/> 
+              <Route path='/signup' render={() => <PreviewContainer fromPreview={false} signUpHandler={signUpHandler} history={history} loginHandler={loginHandler}/>}/>}/>
+              <Route path="/" render={() => <PreviewContainer fromPreview={true} signUpHandler={signUpHandler} history={history} loginHandler={loginHandler}/>}/> 
               
 
             </Switch>

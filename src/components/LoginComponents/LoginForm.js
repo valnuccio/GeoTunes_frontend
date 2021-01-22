@@ -87,17 +87,18 @@ const LoginForm  = (props) => {
 
                 <br/>
 
-                <Link to='/signUp' type ='button'>
-
+                {/* <Link to='/signUp' type ='button' > */}
+                
                     <Button
                         id='registerBtn'
                         class = 'formbtn' 
                         type='SignUp'
+                        onClick={props.switchLogin}
                     >
                     Register New User
                     </Button>
 
-                </Link>
+                {/* </Link> */}
 
             </LoginInputForm>
          

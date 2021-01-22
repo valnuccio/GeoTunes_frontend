@@ -1,14 +1,15 @@
-import React from 'react';
-import PreviewMap from './maps/PreviewMap';
+import React, {useEffect, useState} from 'react';
+
 import LoginContainer from './LoginContainer';
 // import '../customCss/loginCss.css'
 import styled from 'styled-components'
-import StockFootage from '../../src/StockFootage.mp4';
-import PreviewFootage from '../../src/PreviewFootage.mp4'
-import transparentLogo from "../../src/transparentLogo.png";
+
 import PreviewPageVid from '../components/PreviewPageVid.js';
+import Signup from '../components/LoginComponents/Signup'
 
 const PreviewContainer = (props) => {
+
+
 
    
 const Container=styled.div`
@@ -26,13 +27,9 @@ const Container=styled.div`
     
     return (
         <Container>
-            <LoginContainer loginHandler={props.loginHandler} />
+            <LoginContainer fromPreview={props.fromPreview} loginHandler={props.loginHandler} signUpHandler={props.signUpHandler}/>
             <PreviewPageVid />
-            {/* <Video id="background-video" loop autoPlay poster={transparentLogo}>
-                <source src={StockFootage} type="video/mp4" />
-                <source src={PreviewFootage} type="video/mp4" />
-                Your browser does not support the video tag.
-            </Video> */}
+          
         </Container>
     );
 };
