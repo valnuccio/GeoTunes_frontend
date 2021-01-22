@@ -7,14 +7,15 @@ const padding={
     marginTop:'20px'
 }   
 
+const LoginInputForm = styled.div`
+display:flex;
+flex-direction:column;
+`;
+
 const LoginForm  = (props) => {
 
 
 
-    const LoginInputForm = styled.div`
-    display:flex;
-    flex-direction:column;
-    `;
 
 
     const [username, setUsername] = useState('');
@@ -57,11 +58,11 @@ const LoginForm  = (props) => {
         <>
         
 
-            <LoginInputForm  onSubmit={handleUserInfo}>
+            <Form  onSubmit={handleUserInfo}>
 
                 
 
-                    <Form.Group widths='equal'>
+                    <Form.Group widths='equal' style={{display:"flex", flexDirection:'column'} }>
                     
                         <Form.Input 
                             className='formText' 
@@ -83,11 +84,15 @@ const LoginForm  = (props) => {
                         />
                     </Form.Group>
 
-                <Button style={padding} class = 'formBtn' type='Login'>Login</Button>
+                    <br/>
+                <br/>
+                <Button id='registerBtn' class = 'formBtn' type='Submit'>Login</Button>
 
                 <br/>
+                <br/>
+               
 
-                {/* <Link to='/signUp' type ='button' > */}
+                
                 
                     <Button
                         id='registerBtn'
@@ -98,9 +103,9 @@ const LoginForm  = (props) => {
                     Register New User
                     </Button>
 
-                {/* </Link> */}
+                
 
-            </LoginInputForm>
+            </Form>
          
         </>
     )

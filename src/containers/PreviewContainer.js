@@ -1,17 +1,13 @@
 import React, {useEffect, useState} from 'react';
 
 import LoginContainer from './LoginContainer';
-// import '../customCss/loginCss.css'
+
 import styled from 'styled-components'
 
 import PreviewPageVid from '../components/PreviewPageVid.js';
 import Signup from '../components/LoginComponents/Signup'
 
-const PreviewContainer = (props) => {
 
-
-
-   
 const Container=styled.div`
     height:100%;
     width:100%;
@@ -22,6 +18,12 @@ const Container=styled.div`
     
 
 `
+const PreviewContainer = (props) => {
+
+
+
+   
+
 
     
     
