@@ -113,7 +113,7 @@ if (!isLoaded) return 'Loading Maps';
     return (
         <>
        
-            <Nav createMode={false} logOutHandler={props.logOutHandler} user={props.user}/>
+            
             <div id='viewMap'>
             <GoogleMap
                 mapContainerStyle={mapContainerStyle}

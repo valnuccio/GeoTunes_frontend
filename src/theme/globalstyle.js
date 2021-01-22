@@ -28,6 +28,10 @@ body {
       font-family: georgia;
   }
 
+  .ui.button {
+    background-color: #124E78;  
+  } 
+
   #root{
     height:100%;
     width:100%;
