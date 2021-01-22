@@ -28,8 +28,8 @@ left:5vw;
 background: rgb(169,169,169);
 background: linear-gradient(350deg, rgba(169,169,169,1) 0%, rgba(52,52,52,0.8393732492997199) 92%);
 z-index:1;
-border-radius: 12% / 50%;
-padding:5% 5%;
+border-radius: 30% / 50%;
+padding:10%;
 box-shadow: 0 40px 40px rgba(0,0,0,1)
 display:flex;
 align-items:center;
