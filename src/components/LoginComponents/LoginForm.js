@@ -1,16 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+
 import { Button, Form} from 'semantic-ui-react'
-import styled from 'styled-components';
 
-const padding={
-    marginTop:'20px'
-}   
 
-const LoginInputForm = styled.div`
-display:flex;
-flex-direction:column;
-`;
+
+
 
 const LoginForm  = (props) => {
 
