@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 
 import LoginContainer from './LoginContainer';
 
 import styled from 'styled-components'
 
 import PreviewPageVid from '../components/PreviewPageVid.js';
-import Signup from '../components/LoginComponents/Signup'
+
 
 
 const Container=styled.div`
@@ -35,5 +35,7 @@ const PreviewContainer = (props) => {
         </Container>
     );
 };
+
+
 
 export default PreviewContainer;
