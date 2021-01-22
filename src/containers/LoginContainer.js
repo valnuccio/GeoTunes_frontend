@@ -14,6 +14,7 @@ const LoginContainer = (props) => {
     position:relative;
     width:40%;
     margin:05%;
+    
     `
     return(
         <Container>
