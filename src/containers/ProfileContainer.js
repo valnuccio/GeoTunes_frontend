@@ -124,7 +124,7 @@ const ProfileContainer = (props) => {
                     </List>):
                     <p> Looks like you don't have any routes Favorited yet!</p>}
          
-                    {playListName!=""?(
+                    {playListName!==""?(
                     <>
                             <Header id='itunesHeader' as='h4' icon>
                                 <Icon name='itunes' />

@@ -5,24 +5,24 @@ import React,{useState, useEffect } from 'react';
 /* global google */
 
 function MapDirectionsRenderer(props) {
-  
+    const {places, getCords} = props;
     const [directions, setDirections] = useState(null);
     const [error, setError] = useState(null);
     
     useEffect(()=>{
-       props.getCords(props.places)
-    }, [props.places])
+       getCords(places)
+    }, [places, getCords])
 
 
   
     useEffect(() => {
       
-      const {places} = props;
+      
     
       const waypoints = places.map(p => ({
         location: { lat: p.lat, lng: p.lng},
 
-      }));
+      }), []);
     
       
       
