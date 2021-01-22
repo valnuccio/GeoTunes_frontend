@@ -1,8 +1,7 @@
-import React, { useState, useEffect} from 'react'
-import { Button, Menu } from 'semantic-ui-react'
-import SpotifyAuthButton from './SpotifyAuthButton';
+import React from 'react';
+import { Button, Menu } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
-import '../../customCss/navCss.css'
+import '../../customCss/navCss.css';
 
 
 
