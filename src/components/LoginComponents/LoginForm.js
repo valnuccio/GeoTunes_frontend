@@ -1,21 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Form, Segment } from 'semantic-ui-react'
+import { Button, Form} from 'semantic-ui-react'
 import styled from 'styled-components';
-import LoginHeader from './LoginHeader';
 
-
-
-
+const padding={
+    marginTop:'20px'
+}   
 
 const LoginForm  = (props) => {
 
-    const LoginBackDrop = styled.div`
-      background:#00563B;
-      border-radius: 10px;
-      padding: 20px;
-      border-style:outset;
-    `;
+
 
     const LoginInputForm = styled.div`
     display:flex;
@@ -61,11 +55,11 @@ const LoginForm  = (props) => {
     
     return(
         <>
-        {/* <LoginBackDrop> */}
+        
 
             <LoginInputForm  onSubmit={handleUserInfo}>
 
-                <LoginHeader />
+                
 
                     <Form.Group widths='equal'>
                     
@@ -74,7 +68,7 @@ const LoginForm  = (props) => {
                             type='text' 
                             fluid 
                             label='Username' 
-                            placeholder='username' 
+                            placeholder='Username' 
                             value={username} 
                             onChange={updateState} 
                             name="username"
@@ -82,14 +76,14 @@ const LoginForm  = (props) => {
                         <Form.Input 
                             className='formText' 
                             type='password' fluid label='Password' 
-                            placeholder='password' 
+                            placeholder='Password' 
                             value={password} 
                             onChange={updateState} 
                             name="password"
                         />
                     </Form.Group>
 
-                <Button class = 'formBtn' type='Login'>Login</Button>
+                <Button style={padding} class = 'formBtn' type='Login'>Login</Button>
 
                 <br/>
 
@@ -100,16 +94,17 @@ const LoginForm  = (props) => {
                         class = 'formbtn' 
                         type='SignUp'
                     >
-                    Or Click to Register
+                    Register New User
                     </Button>
 
                 </Link>
 
             </LoginInputForm>
-            
-        {/* </LoginBackDrop> */}
+         
         </>
     )
 }
+
+
 
 export default LoginForm

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {GlobalStyle} from '../src/theme/globalstyle';
 import { Switch, Route } from 'react-router-dom';
 import { useHistory } from "react-router";
 import SignUp from './components/LoginComponents/Signup';
@@ -8,7 +9,8 @@ import CreateMap from './containers/maps/CreateMap';
 import RoutesContainer from './containers/RoutesContainer';
 import {getUser as getUserRoute, users as userRoute, login as loginRoute} from './railsserver';
 import ProfileContainer from './containers/ProfileContainer';
-import './index.css'
+import './index.css';
+import styled from 'styled-components';
 
 const App = (props) => {
 
@@ -104,46 +106,59 @@ const App = (props) => {
    
   };
 
-  const render = () => {
+  const AppWrapper=styled.div`
+   
+  `
 
+  const render = () => {
+    
     if(user === 'init') {
       return <h2> </h2>
 
     } else if(!user) {
       return (
-        <Switch>
-          <Route path='/signup' render={() => <SignUp signUpHandler={signUpHandler}/>}/>
-          <Route path="/" render={() => <PreviewContainer history={history} loginHandler={loginHandler}/>}/> 
-          
+       <AppWrapper>
+         <GlobalStyle/>
+            <Switch>
+              
+              <Route path='/signup' render={() => <SignUp signUpHandler={signUpHandler}/>}/>
+              <Route path="/" render={() => <PreviewContainer history={history} loginHandler={loginHandler}/>}/> 
+              
 
-        </Switch>
+            </Switch>
+
+        </AppWrapper>
       )
 
     } else {
       return (
-        <Switch>
-          
-          <Route path='/home' render={() => <HomeContainer history = {history}  user={user} logOutHandler={logOutHandler}/>}/>
-          <Route  path="/create" render={() => <CreateMap history={history} user={user} logOutHandler={logOutHandler}/>}/> 
-          <Route  path="/routes/:id" render={(routerProps) => {
-              let id = parseInt(routerProps.match.params.id)
-              return <RoutesContainer user={user} routerID={id} logOutHandler={logOutHandler} />
-          }}/> 
-          
-          <Route  path="/routes" render={() => {
+        <AppWrapper>
+          <GlobalStyle/>
+            <Switch>
+              
+              <Route path='/home' render={() => <HomeContainer history = {history}  user={user} logOutHandler={logOutHandler}/>}/>
+              <Route  path="/create" render={() => <CreateMap history={history} user={user} logOutHandler={logOutHandler}/>}/> 
+              <Route  path="/routes/:id" render={(routerProps) => {
+                  let id = parseInt(routerProps.match.params.id)
+                  return <RoutesContainer user={user} routerID={id} logOutHandler={logOutHandler} />
+              }}/> 
+              
+              <Route  path="/routes" render={() => {
 
-            return <RoutesContainer user={user} routerID={localStorage.getItem('currentRoute')} logOutHandler={logOutHandler} />
-           
-          }}/>
-          <Route path='/profile/:id' render= {(rProps) => {
-            let id = parseInt(rProps.match.params.id)
+                return <RoutesContainer user={user} routerID={localStorage.getItem('currentRoute')} logOutHandler={logOutHandler} />
+              
+              }}/>
+              <Route path='/profile/:id' render= {(rProps) => {
+                let id = parseInt(rProps.match.params.id)
 
-            return <ProfileContainer userID = {id} user={user} logOutHandler={logOutHandler} />
-          }} />
-          <Route path='/' render={() => <HomeContainer history = {history}  user={user} logOutHandler={logOutHandler}/>}/>
-        </Switch> 
+                return <ProfileContainer userID = {id} user={user} logOutHandler={logOutHandler} />
+              }} />
+              <Route path='/' render={() => <HomeContainer history = {history}  user={user} logOutHandler={logOutHandler}/>}/>
+            </Switch> 
+        </AppWrapper>
       )
     }; 
+   
   };
 
 
