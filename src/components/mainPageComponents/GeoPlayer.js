@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SpotifyPlayer from 'react-spotify-web-playback';
-import { User, Playlist, PlaylistTracks, Artist } from 'react-spotify-api';
+import { Playlist, PlaylistTracks, Artist } from 'react-spotify-api';
 import { SpotifyApiContext } from 'react-spotify-api';
 import { List, Segment } from 'semantic-ui-react';
 
@@ -132,10 +132,6 @@ const GeoPlayer = (props) => {
 
 }
 
-const styles={
-    rejection: {
-        "align-self": "center"
-}
-}
+
 
 export default GeoPlayer

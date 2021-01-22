@@ -5,13 +5,13 @@ import React,{useState, useEffect } from 'react';
 /* global google */
 
 function MapDirectionsRenderer(props) {
-    const {places, getCords} = props;
+    const {places, getCords, getData} = props;
     const [directions, setDirections] = useState(null);
     const [error, setError] = useState(null);
     
     useEffect(()=>{
-       getCords(places)
-    }, [places, getCords])
+              getCords(places)
+            }, [places, getCords])
 
 
   
@@ -19,10 +19,10 @@ function MapDirectionsRenderer(props) {
       
       
     
-      const waypoints = places.map(p => ({
-        location: { lat: p.lat, lng: p.lng},
+                    const waypoints = places.map(p => ({
+                      location: { lat: p.lat, lng: p.lng},
 
-      }), []);
+                    }), []);
     
       
       
@@ -47,8 +47,8 @@ function MapDirectionsRenderer(props) {
           if (status === google.maps.DirectionsStatus.OK) {
             if(result!==directions){
               setDirections(result);
-              if(props.getData !== null){
-                props.getData(result)
+              if(getData !== null){
+                getData(result)
               }
           } 
             else {
@@ -57,7 +57,9 @@ function MapDirectionsRenderer(props) {
         }
       }
       );
-    }, [props.places]);
+
+
+    }, [places, getData,directions]);
   
     if (error) {
       return <h1>{error}</h1>;
