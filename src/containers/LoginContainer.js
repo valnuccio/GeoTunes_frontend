@@ -14,9 +14,7 @@ const LoginContainer = (props) => {
     }
         ,[props.fromPreview])
 
-    const Title = styled.h1`
-
-    `
+ 
     const Container=styled.div`
     z-index:1;
     position:relative;
