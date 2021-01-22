@@ -106,9 +106,10 @@ const App = (props) => {
    
   };
 
-  const AppWrapper=styled.div`
+  // const AppWrapper=styled.div`
+
    
-  `
+  // `
 
   const render = () => {
     
@@ -117,7 +118,8 @@ const App = (props) => {
 
     } else if(!user) {
       return (
-       <AppWrapper>
+       
+         <>
          <GlobalStyle/>
             <Switch>
               
@@ -126,13 +128,13 @@ const App = (props) => {
               
 
             </Switch>
-
-        </AppWrapper>
+        </>
+        
       )
 
     } else {
       return (
-        <AppWrapper>
+        <>
           <GlobalStyle/>
             <Switch>
               
@@ -155,7 +157,7 @@ const App = (props) => {
               }} />
               <Route path='/' render={() => <HomeContainer history = {history}  user={user} logOutHandler={logOutHandler}/>}/>
             </Switch> 
-        </AppWrapper>
+       </>
       )
     }; 
    
