@@ -7,7 +7,7 @@ import Nav from '../components/mainPageComponents/Nav';
 import UpdateRouteToggleButton from '../components/mainPageComponents/UpdateRouteToggleButton';
 import SpotifyAuthButton from '../components/mainPageComponents/SpotifyAuthButton';
 import {Header, Icon} from 'semantic-ui-react'
-import '../customCss/showPage.css'
+
 
 const RoutesContainer = (props) =>{
     const prepPinRender = (prd) => {

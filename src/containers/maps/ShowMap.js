@@ -11,7 +11,7 @@ import {
 } from '@react-google-maps/api';
 import MapsDirectionsRenderer from './MapsDirectionsRenderer';
 import "@reach/combobox/styles.css";
-import '../../customCss/map.css';
+
 
 
 const libraries = ['places'];

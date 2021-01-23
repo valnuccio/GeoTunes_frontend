@@ -29,7 +29,8 @@ body {
   }
 
   .ui.button {
-    background-color: #124E78;  
+    background-color: #124E78;
+    width:100%  
   } 
 
   #root{

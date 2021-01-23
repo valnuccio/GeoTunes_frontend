@@ -4,7 +4,7 @@ import { SpotifyApiContext, Playlist, PlaylistTracks, Artist } from 'react-spoti
 import { List, Segment, Button } from 'semantic-ui-react';
 import ShowMap from "./maps/ShowMap";
 import "@reach/combobox/styles.css";
-import '../customCss/map.css';
+
 import SpotifyAuthButton from '../components/mainPageComponents/SpotifyAuthButton';
 
 

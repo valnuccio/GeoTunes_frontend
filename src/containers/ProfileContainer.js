@@ -5,7 +5,7 @@ import Nav from '../components/mainPageComponents/Nav';
 import {Playlist, PlaylistTracks, Artist } from 'react-spotify-api';
 import { SpotifyApiContext } from 'react-spotify-api';
 
-import '../customCss/profile.css'
+
 import { getUser, playroutes } from '../railsserver';
 import { 
     Segment, 

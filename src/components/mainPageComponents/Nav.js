@@ -1,8 +1,19 @@
 import React from 'react';
-import { Button, Menu } from 'semantic-ui-react';
+import { Button} from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 
+const StyledMenu = styled.div`
+display:flex;
+flex-direction:colomn;
+width:50%;
 
+`
+
+const StyledButton = styled(Button)`
+width:100%;
+height:auto;
+`
 
 
 const Nav = (props) => {
@@ -11,41 +22,41 @@ const Nav = (props) => {
 
 
   return(
-    <Menu id='mainNav'>
+    <StyledMenu id='mainNav'>
 
-      <Menu.Item>
+      
           <NavLink to={'/home'}>
-              <Button>Home</Button>
+              <StyledButton>Home</StyledButton>
           </NavLink>
         
-      </Menu.Item>
+     
 
-      <Menu.Item>
+      
         
           <NavLink to='/create'>
             {!props.createMode ? 
-                <Button>Create Path</Button> 
+                <StyledButton>Create Path</StyledButton> 
                 :
-                <Button onClick={props.createPath}> Submit Path</Button>
+                <StyledButton onClick={props.createPath}> Submit Path</StyledButton>
             }
           </NavLink>
         
         
       
-      </Menu.Item>
+      
 
-      <Menu.Item>
+      
         <NavLink to={`/profile/${props.user.user.id}`}>
-          <Button
+          <StyledButton
             >My Profile
-          </Button>
+          </StyledButton>
         </NavLink>
-      </Menu.Item>
+      
 
-      <Menu.Item>
-        <Button onClick = {props.logOutHandler}> Sign out</Button>
-      </Menu.Item>
-    </Menu>
+      
+        <StyledButton onClick = {props.logOutHandler}> Sign out</StyledButton>
+      
+    </StyledMenu>
   )
 }
 

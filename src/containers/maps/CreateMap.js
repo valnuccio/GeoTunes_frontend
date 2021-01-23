@@ -30,7 +30,7 @@ import{
 } from "@reach/combobox";
 
 import "@reach/combobox/styles.css";
-import '../../customCss/map.css';
+
 
 
 

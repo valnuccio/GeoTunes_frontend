@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import LoginForm from '../components/LoginComponents/LoginForm';
-import '../customCss/loginCss.css';
+
 import styled from 'styled-components';
 import LoginHeader from '../components/LoginComponents/LoginHeader';
 import SignupForm from '../components/LoginComponents/SignupForm';
