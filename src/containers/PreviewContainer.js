@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 
 import LoginContainer from './LoginContainer';
 
@@ -20,7 +20,7 @@ const Container=styled.div`
 `
 const PreviewContainer = (props) => {
 
-
+    document.body.style.height = "100vh"
 
    
 

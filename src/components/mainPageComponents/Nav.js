@@ -6,17 +6,25 @@ import styled from 'styled-components';
 const StyledMenu = styled.div`
 display:flex;
 flex-direction:column;
+justify-content:space-between;
 width:30vw;
-margin-top:5vh;
+height:20vh;
+margin-top:40px;
 `
 
-const ButtonContainer = styled.div`
-width:80%;
-height:10vh;
 
 
+const StyledButton = styled(Button)`
+width:100%;
+
+margin:5%;
 `
 
+const StyledNavLink = styled(NavLink)`
+
+
+width:100%;
+`
 
 const Nav = (props) => {
 
@@ -26,37 +34,37 @@ const Nav = (props) => {
   return(
     <StyledMenu id='mainNav'>
         {props.page!=="home"? 
-          <ButtonContainer>
-            <NavLink to={'/home'}>
-                <Button>Home</Button>
-            </NavLink>
-        </ButtonContainer>:null}
+          
+            <StyledNavLink to={'/home'}>
+                <StyledButton>Home</StyledButton>
+            </StyledNavLink>
+:null}
 
       
-        <ButtonContainer>
-            <NavLink to='/create'>
+        
+            <StyledNavLink to={'/create'}>
               {!props.createMode ? 
-                  <Button>Create Path</Button> 
+                  <StyledButton>Create Path</StyledButton> 
                   :
-                  <Button onClick={props.createPath}> Submit Path</Button>
+                  <StyledButton onClick={props.createPath}> Submit Path</StyledButton>
               }
-            </NavLink>
-        </ButtonContainer>
+            </StyledNavLink>
+
         
       
       
 
-      <ButtonContainer>
-          <NavLink to={`/profile/${props.user.user.id}`}>
-            <Button
+      
+          <StyledNavLink to={`/profile/${props.user.user.id}`}>
+            <StyledButton
               >My Profile
-            </Button>
-          </NavLink>
-      </ButtonContainer>
+            </StyledButton>
+          </StyledNavLink>
 
-      <ButtonContainer>
-        <Button onClick = {props.logOutHandler}> Sign out</Button>
-      </ButtonContainer>
+
+      
+        <StyledButton onClick = {props.logOutHandler}> Sign out</StyledButton>
+
 
     </StyledMenu>
   )

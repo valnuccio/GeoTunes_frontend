@@ -13,13 +13,16 @@ import Nav from '../components/mainPageComponents/Nav';
 
 
 const Container1 = styled.div`
-width:100vw;
-height:100vh;
-background-image: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
+
+
+height:100%;
+// background: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
 `
 
 const Container2 = styled.div`
 display:flex;
+width:100vw;
+
 
 `
 

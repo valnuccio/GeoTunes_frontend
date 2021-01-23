@@ -6,13 +6,14 @@ const GlobalStyle= createGlobalStyle`
 
 body {
     margin: 0;
-    height:100%;
+    height:1200px;
     width:100%;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif,'Quattrocento Sans';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow:scroll
   }
   
   code {
@@ -36,7 +37,7 @@ body {
 
   .ui.button {
     background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
-    width:100%  
+    // width:100%  
   } 
 
   #root{

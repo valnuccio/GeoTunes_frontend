@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { SpotifyAuth } from 'react-spotify-auth';
 import styled from 'styled-components';
 
@@ -38,15 +38,22 @@ justify-content:center;
 
 const SpotifyAuthScreen=()=>{
 
+    
 
-
+    useEffect(() => {
+        document.body.style.height = "100vh"
+       
+        return function cleanup() {
+          document.body.style.height="1200px"
+        };
+      });
     
     return (
         <>
         
         <SpotInfoContainer>
-            <Design>
-                <Box>
+            
+                
                 <h3>This application relies heavily on the use of a Spotify Premium Acct </h3>
                 <h3> Please click below to login to your Spotify Acct</h3>
                 <br></br><br></br><br></br>
@@ -70,8 +77,8 @@ const SpotifyAuthScreen=()=>{
                         
                         
                      />
-                </Box>
-            </Design>
+                
+            
             
            
                    
