@@ -20,21 +20,19 @@ import styled from 'styled-components';
 
 
 const Utilities = styled.div`
+width:100%;
 display:flex;
 
 `
 const Total = styled.div`
 display:flex;
 flex-direction:column;
-width:50vw;
+width:70vw;
 `
 
 const MapDiv = styled.div`
+position:relative;
 `
-
-// const StyledLocate = styled(Locate)`
-// width:10px;
-// `
 
 const libraries = ['places'];
 
@@ -60,9 +58,9 @@ const options  = {
 const ViewMap = (props) => {
 
     const prepPinRender = (prd) => {
-        //console.log('prd', prd)
+        
         return prd.map((pr, i) => {
-            //console.log('inMap', pr)
+            
             return {
                 lat: pr.pins[0].lat, 
                 lng: pr.pins[0].lng, 
@@ -122,51 +120,58 @@ if (!isLoaded) return 'Loading Maps';
        
             <Total>
             <MapDiv>
-            <GoogleMap
-                mapContainerStyle={mapContainerStyle}
-                center={center}
-                zoom={12}
-                options={options}
-                onLoad={onMapLoad}
-                   
-            >
-                {markers.map(marker => (
-                    
-                <Marker 
-                key={marker.id} 
-                position={{lat: marker.lat, lng: marker.lng}} 
-                icon={{
-                    url:'/Sound-Wave-Headphones.svg', 
-                    scaledSize: new window.google.maps.Size(30,30), 
-                    origin: new window.google.maps.Point(0,0), 
-                    anchor: new window.google.maps.Point(15,15),
-                }}
-                onClick={()=>{
-                    setSelected(marker);
-                    
-                    }}
-                  />
-                ))}
+                    <Search  panTo={panTo} />
+                    <Locate panTo={panTo} options={options}/> 
+                    <GoogleMap
+                        mapContainerStyle={mapContainerStyle}
+                        center={center}
+                        zoom={12}
+                        options={options}
+                        onLoad={onMapLoad}
+                        
+                    >
+                        {markers.map(marker => (
+                            
+                        <Marker 
+                        key={marker.id} 
+                        position={{lat: marker.lat, lng: marker.lng}} 
+                        icon={{
+                            url:'/Sound-Wave-Headphones.svg', 
+                            scaledSize: new window.google.maps.Size(30,30), 
+                            origin: new window.google.maps.Point(0,0), 
+                            anchor: new window.google.maps.Point(15,15),
+                        }}
+                        onClick={()=>{
+                            setSelected(marker);
+                            
+                            }}
+                        />
+                        ))}
 
-                {selected ? 
-                (
-                <InfoWindow 
-                
-                    position={{lat: selected.lat, lng: selected.lng }} 
-                    onCloseClick={()=>{ 
-                    setSelected(null);  
-                     }}>
-                    <div>
-                        {/* <ShowMap routeID={selected.id} setPlayRoute={props.setPlayRoute} playlist={selected.playlist} showMarkers={selected.subPins} /> */}
-                        <InfoView routeID={selected.id} setPlayRoute={props.setPlayRoute} playlist={selected.playlist} showMarkers={selected.subPins} />
-                    </div>
-                </InfoWindow>) : null}
-            </GoogleMap>
+                        {selected ? 
+                        (
+                        <InfoWindow 
+                        
+                            position={{lat: selected.lat, lng: selected.lng }} 
+                            onCloseClick={()=>{ 
+                            setSelected(null);  
+                            }}>
+                            <div>
+                                {/* <ShowMap routeID={selected.id} setPlayRoute={props.setPlayRoute} playlist={selected.playlist} showMarkers={selected.subPins} /> */}
+                                <InfoView routeID={selected.id} setPlayRoute={props.setPlayRoute} playlist={selected.playlist} showMarkers={selected.subPins} />
+                            </div>
+                        </InfoWindow>) : null}
+                    </GoogleMap>
             </MapDiv>
-        <Utilities>
-            <Search  panTo={panTo} />
-            <Locate panTo={panTo} options={options}/> 
-         </Utilities>
+
+
+            <Utilities>
+                
+                
+            </Utilities>
+
+
+
          </Total>
          
     );
