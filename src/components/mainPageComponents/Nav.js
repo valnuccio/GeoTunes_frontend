@@ -5,14 +5,16 @@ import styled from 'styled-components';
 
 const StyledMenu = styled.div`
 display:flex;
-flex-direction:colomn;
-width:50%;
+flex-direction:column;
+width:30vw;
+
 
 `
 
 const StyledButton = styled(Button)`
 width:100%;
-height:auto;
+height:5vh;
+margin:5vh;
 `
 
 
