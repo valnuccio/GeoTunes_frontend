@@ -24,7 +24,8 @@ import styled from 'styled-components';
 
 const MapDiv = styled.div`
 position:relative;
-width:75vw;
+width:80vw;
+margin-top:10%;
 
 `
 
@@ -32,7 +33,7 @@ const libraries = ['places'];
 
 const mapContainerStyle = {
     // width: '90vw',
-    height: '90vh',
+    height: '100vh',
     borderRadius: '3%',
 };
 
