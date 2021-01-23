@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import LoginForm from '../components/LoginComponents/LoginForm';
 
 import styled from 'styled-components';
-import LoginHeader from '../components/LoginComponents/LoginHeader';
+import Header from '../components/mainPageComponents/Header';
 import SignupForm from '../components/LoginComponents/SignupForm';
 
 
@@ -35,9 +35,9 @@ const switchLogin=()=>{
 
     return(
         <Container>
-            <LoginHeader/>
+            <Header page={"login"}/>
 
-            {login?<LoginForm loginHandler = {props.loginHandler} switchLogin={switchLogin}/>:<SignupForm fromPreview={true} switchLogin={switchLogin} signUpHandler={props.signUpHandler}/>}
+            {login?<LoginForm  loginHandler = {props.loginHandler} switchLogin={switchLogin}/>:<SignupForm fromPreview={true} switchLogin={switchLogin} signUpHandler={props.signUpHandler}/>}
 
         </Container>
     );

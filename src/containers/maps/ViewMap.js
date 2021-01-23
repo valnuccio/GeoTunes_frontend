@@ -20,21 +20,20 @@ import styled from 'styled-components';
 
 
 
-const Total = styled.div`
-display:flex;
-flex-direction:column;
-width:70vw;
-`
+
 
 const MapDiv = styled.div`
 position:relative;
+width:75vw;
+
 `
 
 const libraries = ['places'];
 
 const mapContainerStyle = {
-    width: '90vw',
-    height: '80vh',
+    // width: '90vw',
+    height: '90vh',
+    borderRadius: '3%',
 };
 
 const center = {
@@ -114,7 +113,7 @@ if (!isLoaded) return 'Loading Maps';
     return (
        
        
-            <Total>
+            
             <MapDiv>
                     <Search  panTo={panTo} />
                     <Locate panTo={panTo} options={options}/> 
@@ -159,7 +158,7 @@ if (!isLoaded) return 'Loading Maps';
                         </InfoWindow>) : null}
                     </GoogleMap>
             </MapDiv>
-         </Total>
+       
          
     );
 }

@@ -47,8 +47,8 @@ const SpotifyAuthScreen=()=>{
         <SpotInfoContainer>
             <Design>
                 <Box>
-                <h2>This application relies heavily on the use of a Spotify Premium Acct </h2>
-                <h2> Please click below to login to your Spotify Acct</h2>
+                <h3>This application relies heavily on the use of a Spotify Premium Acct </h3>
+                <h3> Please click below to login to your Spotify Acct</h3>
                 <br></br><br></br><br></br>
                 <SpotifyAuth
                         title={'Click Here to Register Spotify'}

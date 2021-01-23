@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
+
 const GlobalStyle= createGlobalStyle`
 
 
@@ -23,13 +24,18 @@ body {
     font-family:Quattrocento Sans;
     font-size: 100px;
   }
+
+  h2{
+    font-family:Quattrocento Sans;
+    font-size: 60px;
+  }
   
   h3{
       font-family: georgia;
   }
 
   .ui.button {
-    background-color: #124E78;
+    background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
     width:100%  
   } 
 
@@ -40,7 +46,7 @@ body {
     display:flex;
     justify-content:center;
     align-items: center;
-    background: #202020
+    
   }
   
 `

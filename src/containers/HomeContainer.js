@@ -3,18 +3,19 @@ import React, { useState, useEffect } from 'react';
 import ViewMap from './maps/ViewMap';
 import 'react-spotify-auth/dist/index.css';
 
-import LoginHeader from '../components/LoginComponents/LoginHeader';
+import Header from '../components/mainPageComponents/Header';
 import SpotifyAuthScreen from './SpotifyAuthenticationScreen';
 import "@reach/combobox/styles.css";
 import styled from 'styled-components';
-import Nav from '../components/mainPageComponents/Nav'
+import Nav from '../components/mainPageComponents/Nav';
+
+
+
 
 const Container1 = styled.div`
 width:100vw;
 height:100vh;
-background: rgb(224,224,224);
-background: linear-gradient(54deg, rgba(224,224,224,1) 0%, rgba(121,121,121,0.8393732492997199) 85%);
-
+background-image: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
 `
 
 const Container2 = styled.div`
@@ -22,7 +23,9 @@ display:flex;
 
 `
 
-
+// const Container3 = styled.div`
+// borderRadius:40%;
+// `
 const HomeContainer = (props) =>{
    
     const [token, setToken] = useState(localStorage.getItem('spotifyAuthToken'));
@@ -41,10 +44,12 @@ const HomeContainer = (props) =>{
                 {token?
                   
                  <Container1>
-                        <LoginHeader/>
+                        <Header page={"home"}/>
                         <Container2>
-                            <Nav createMode={false} logOutHandler={props.logOutHandler} user={props.user}/>
-                            <ViewMap setPlayRoute={props.setPlayRoute} history={props.history} user={props.user}  logOutHandler={props.logOutHandler}/>
+                            <Nav page={'home'} createMode={false} logOutHandler={props.logOutHandler} user={props.user}/>
+                            
+                                <ViewMap setPlayRoute={props.setPlayRoute} history={props.history} user={props.user}  logOutHandler={props.logOutHandler}/>
+                            
                         </Container2>
                </Container1>
 

@@ -14,15 +14,23 @@ import styled from 'styled-components';
 
 const SearchContainer = styled.div`
 width:100%
+
 `
 
 const StyledCombobox = styled(Combobox)`
 width:100%
+
 `
 
 const StyledComboboxInput = styled(ComboboxInput)`
-width:100%;
+width:99%;
 height:5vh;
+position:absolute;
+top:15px;
+margin-left:4px;
+
+z-index:1
+
 `
 
 const Search = ({panTo}) =>{
