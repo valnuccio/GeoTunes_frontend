@@ -24,7 +24,7 @@ import styled from 'styled-components';
 
 const MapDiv = styled.div`
 position:relative;
-width:80vw;
+width:70vw;
 margin-top:10%;
 
 `
