@@ -116,7 +116,7 @@ if (!isLoaded) return 'Loading Maps';
             
             <MapDiv>
                     <Search  panTo={panTo} />
-                    <Locate panTo={panTo} options={options}/> 
+                    <Locate panTo={panTo} options={options} /> 
                     <GoogleMap
                         mapContainerStyle={mapContainerStyle}
                         center={center}
