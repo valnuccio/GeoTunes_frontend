@@ -4,17 +4,9 @@ import styled from 'styled-components';
 import {Globe2Outline} from '@styled-icons/evaicons-outline/'
 
 
-
-
-
-
-const LoginHeader = () => {
-
-  
 const Title = styled.h1`
  
 `
-
 const Container2= styled.div`
 display:flex;
 flex-direction:row;
@@ -26,12 +18,18 @@ const Icon = styled(Globe2Outline)`
   height:100px;
 `
 
-  const Container=styled.div`
-  display:flex;
-  flex-direction:row;
-  width:100vw;
-  
+
+const Container=styled.div`
+display:flex;
+flex-direction:row;
+width:100vw;
+
 `
+
+
+const LoginHeader = () => {
+
+
   return(
     <>
     <Container2>

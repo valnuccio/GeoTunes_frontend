@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import ViewMap from './maps/ViewMap';
 import 'react-spotify-auth/dist/index.css';
-import {  Header, Icon} from 'semantic-ui-react';
+
 import LoginHeader from '../components/LoginComponents/LoginHeader';
 import SpotifyAuthScreen from './SpotifyAuthenticationScreen';
 import "@reach/combobox/styles.css";
@@ -12,8 +12,8 @@ import Nav from '../components/mainPageComponents/Nav'
 const Container1 = styled.div`
 width:100vw;
 height:100vh;
-background: rgb(169,169,169);
-background: linear-gradient(350deg, rgba(169,169,169,1) 0%, rgba(52,52,52,0.8393732492997199) 92%);
+background: rgb(224,224,224);
+background: linear-gradient(54deg, rgba(224,224,224,1) 0%, rgba(121,121,121,0.8393732492997199) 85%);
 
 `
 

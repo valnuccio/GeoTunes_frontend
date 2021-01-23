@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle= createGlobalStyle`
-@import url(‘https://fonts.googleapis.com/css?family=Montserrat|Roboto');
+
 
 body {
     margin: 0;
@@ -9,7 +9,7 @@ body {
     width:100%;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
+      sans-serif,'Quattrocento Sans';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -20,7 +20,7 @@ body {
   }
 
   h1 {
-    font-family:montserrat;
+    font-family:Quattrocento Sans;
     font-size: 100px;
   }
   

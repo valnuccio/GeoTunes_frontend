@@ -14,7 +14,7 @@ import {
     Icon,
     Button
 
-} from 'semantic-ui-react'
+} from 'semantic-ui-react';
 
 
 
@@ -24,6 +24,8 @@ const ProfileContainer = (props) => {
     const [updatedProfile, setUpdatedProfile] = useState(null);
     const [markers, setMarkers] = useState([]);
     const[playlist, setPlaylist] = useState('')
+
+
     useEffect(() => {
         fetch(getUser, {
             method: 'GET',
@@ -53,7 +55,12 @@ const ProfileContainer = (props) => {
                 setPL(route.name)
             })
     }
+
+
     const [playlistID, setPlaylistID] = useState(null)
+
+
+    
     return(
         <>
         <div id='headerNav'>

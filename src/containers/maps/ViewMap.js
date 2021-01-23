@@ -19,11 +19,7 @@ import "@reach/combobox/styles.css";
 import styled from 'styled-components';
 
 
-const Utilities = styled.div`
-width:100%;
-display:flex;
 
-`
 const Total = styled.div`
 display:flex;
 flex-direction:column;
@@ -163,15 +159,6 @@ if (!isLoaded) return 'Loading Maps';
                         </InfoWindow>) : null}
                     </GoogleMap>
             </MapDiv>
-
-
-            <Utilities>
-                
-                
-            </Utilities>
-
-
-
          </Total>
          
     );

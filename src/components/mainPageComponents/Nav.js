@@ -7,8 +7,6 @@ const StyledMenu = styled.div`
 display:flex;
 flex-direction:column;
 width:30vw;
-
-
 `
 
 const StyledButton = styled(Button)`
