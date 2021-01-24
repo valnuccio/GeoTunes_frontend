@@ -37,7 +37,8 @@ body {
 
   .ui.button {
     background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
-    // width:100%  
+    width:100%;
+    height:5vh;
   } 
 
   #root{

@@ -101,7 +101,14 @@ const previewRoute = (id) => {
 }
 
 
-  console.log(props.user.user.name)
+//   for Show Map
+
+    const resetMap = () =>{
+        setMarkers([]);
+        setPL(false);
+        setPlaylistID(null);
+        setPlaylist(false);
+    }
 
     return(
 
@@ -121,7 +128,7 @@ const previewRoute = (id) => {
                          </Container2>  
                             <Container3>
                                 {props.user? <h3>Welcome {props.user.user.name}</h3>:null}
-                                {playListName?<ShowMap showMarkers={markers} getData={()=>null} getCords={() => null} />:<ViewMap setPlayRoute={props.setPlayRoute} history={props.history} user={props.user}  logOutHandler={props.logOutHandler}/>}
+                                {playListName?<ShowMap showMarkers={markers} getData={()=>null} getCords={() => null} resetMap={resetMap}/>:<ViewMap setPlayRoute={props.setPlayRoute} history={props.history} user={props.user}  logOutHandler={props.logOutHandler}/>}
                             </Container3>
                         
                </Container1>

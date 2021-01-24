@@ -23,7 +23,7 @@ margin:5%;
 const StyledNavLink = styled(NavLink)`
 
 
-width:100%;
+// width:100%;
 `
 
 const Nav = (props) => {
@@ -42,13 +42,7 @@ const Nav = (props) => {
 
       
         
-            <StyledNavLink to={'/create'}>
-              {!props.createMode ? 
-                  <StyledButton>Create Path</StyledButton> 
-                  :
-                  <StyledButton onClick={props.createPath}> Submit Path</StyledButton>
-              }
-            </StyledNavLink>
+        
 
         <div>
           
@@ -83,7 +77,13 @@ const Nav = (props) => {
                     </List>) : (<h3>No routes yet</h3>)}
             </div>
 
-      
+            <StyledNavLink to={'/create'}>
+              {!props.createMode ? 
+                  <StyledButton>Create Path</StyledButton> 
+                  :
+                  <StyledButton onClick={props.createPath}> Submit Path</StyledButton>
+              }
+            </StyledNavLink>
 
             
                   <Segment inverted>
@@ -122,9 +122,9 @@ const Nav = (props) => {
        
 
 
-      
-        <StyledButton onClick = {props.logOutHandler}> Sign out</StyledButton>
-
+        <div>
+            <StyledButton onClick = {props.logOutHandler}> Sign out</StyledButton>
+        </div> 
 
     </StyledMenu>
   )

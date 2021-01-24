@@ -1,7 +1,7 @@
 import React, {useState, useCallback, useRef, useEffect} from 'react';
 import mapStyle from '../../customCss/mapStyle';
 import styled from 'styled-components';
-
+import {Button} from 'semantic-ui-react';
 
 import {
     GoogleMap,
@@ -22,6 +22,20 @@ const MapDiv = styled.div`
 position:relative;
 width:70vw;
 margin-top:10%;
+`
+
+const ResetButtonDiv = styled.div`
+width:15vw;
+position:absolute;
+top:20px;
+z-index:1;
+`
+
+
+const StyledButton = styled(Button)`
+width:100%;
+
+margin:5%;
 `
 
 
@@ -146,7 +160,9 @@ const ShowMap = (props) => {
     return (
         <MapDiv>
            
-            <div id='showMap'>
+            <ResetButtonDiv>
+                <StyledButton onClick={props.resetMap}>Reset Map</StyledButton>
+            </ResetButtonDiv>
 
             <GoogleMap
                 mapContainerStyle={mapContainerStyle} //defined above
@@ -214,7 +230,7 @@ const ShowMap = (props) => {
 
 
             </GoogleMap>
-            </div>
+           
         </MapDiv>    
         
     );
