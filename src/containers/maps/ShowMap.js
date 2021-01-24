@@ -49,8 +49,8 @@ const ShowMap = (props) => {
     const mapContainerStyle = {
 
         // this map is being doubled on the show page and also used on the infobox view. hence the different sizes here. 
-        width: '90vw',
-        height: props.infoView ? '50vh' : '58vh',
+        // width: '90vw',
+        height: props.infoView ? '50vh' : '100vh',
     };
 
     const center = props.infoView ? ({

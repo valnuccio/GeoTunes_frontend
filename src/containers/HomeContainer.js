@@ -8,7 +8,7 @@ import SpotifyAuthScreen from './SpotifyAuthenticationScreen';
 import "@reach/combobox/styles.css";
 import styled from 'styled-components';
 import Nav from '../components/mainPageComponents/Nav';
-
+import ShowMap from '../containers/maps/ShowMap'
 
 import { getUser, playroutes } from '../railsserver';
 
@@ -79,8 +79,8 @@ const HomeContainer = (props) =>{
 // imported from ProfileContainer
 const [updatedProfile, setUpdatedProfile] = useState(null);
     const [markers, setMarkers] = useState([]);
-    const[playlist, setPlaylist] = useState('')
-const [playListName , setPL] = useState('')
+    const[playlist, setPlaylist] = useState(false)
+const [playListName , setPL] = useState(false)
 const [playlistID, setPlaylistID] = useState(null)
 
 
@@ -93,7 +93,7 @@ const previewRoute = (id) => {
     })
     .then(r => r.json())
     .then(route => {
-        console.log(route)
+        
             setMarkers(route.pins);
             setPlaylist(route.playlist);
             setPL(route.name)
@@ -121,7 +121,7 @@ const previewRoute = (id) => {
                          </Container2>  
                             <Container3>
                                 {props.user? <h3>Welcome {props.user.user.name}</h3>:null}
-                                <ViewMap setPlayRoute={props.setPlayRoute} history={props.history} user={props.user}  logOutHandler={props.logOutHandler}/>
+                                {playListName?<ShowMap showMarkers={markers} getData={()=>null} getCords={() => null} />:<ViewMap setPlayRoute={props.setPlayRoute} history={props.history} user={props.user}  logOutHandler={props.logOutHandler}/>}
                             </Container3>
                         
                </Container1>
