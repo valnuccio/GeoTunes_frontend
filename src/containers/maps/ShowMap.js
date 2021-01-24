@@ -1,5 +1,6 @@
 import React, {useState, useCallback, useRef, useEffect} from 'react';
 import mapStyle from '../../customCss/mapStyle';
+import styled from 'styled-components';
 
 
 import {
@@ -17,6 +18,11 @@ import "@reach/combobox/styles.css";
 const libraries = ['places'];
 
 
+const MapDiv = styled.div`
+position:relative;
+width:70vw;
+margin-top:10%;
+`
 
 
 const options  = {
@@ -49,7 +55,7 @@ const ShowMap = (props) => {
     const mapContainerStyle = {
 
         // this map is being doubled on the show page and also used on the infobox view. hence the different sizes here. 
-        // width: '90vw',
+        // width: '100%',
         height: props.infoView ? '50vh' : '100vh',
     };
 
@@ -138,7 +144,7 @@ const ShowMap = (props) => {
     if (!isLoaded) return 'Loading Maps';
 // is returned only once it is loaded
     return (
-        <div>
+        <MapDiv>
            
             <div id='showMap'>
 
@@ -209,8 +215,8 @@ const ShowMap = (props) => {
 
             </GoogleMap>
             </div>
-            
-        </div>
+        </MapDiv>    
+        
     );
 }
 
