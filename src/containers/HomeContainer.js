@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import ViewMap from './maps/ViewMap';
 import 'react-spotify-auth/dist/index.css';
 import mainLogo from '../../src/images/mainLogo.png';
-
+import SpotifyList from '../components/mainPageComponents/SpotifyList'
 import SpotifyAuthScreen from './SpotifyAuthenticationScreen';
 import "@reach/combobox/styles.css";
 import styled from 'styled-components';
@@ -11,8 +11,8 @@ import Nav from '../components/mainPageComponents/Nav';
 import ShowMap from '../containers/maps/ShowMap'
 
 import { getUser, playroutes } from '../railsserver';
-
-
+import { List, Segment, Button } from 'semantic-ui-react';
+import { SpotifyApiContext, Playlist, PlaylistTracks, Artist } from 'react-spotify-api';
 
 
 
@@ -52,13 +52,21 @@ flex-direction:column;
 const Container3 = styled.div`
 `
 
+
+const StyledSegment = styled(Segment)`
+position:fixed;
+bottom:0px;
+z-index:1
+`
 // const Container3 = styled.div`
 // borderRadius:40%;
 // `
 const HomeContainer = (props) =>{
 
     // const [user, setUser]=useState(false)
-   
+
+   const[selected, setSelected] = useState(null)
+
     const [token, setToken] = useState(localStorage.getItem('spotifyAuthToken'));
 
     useEffect(() => {
@@ -74,6 +82,8 @@ const HomeContainer = (props) =>{
     })
       
     }, [token])
+
+    
 
 
 // imported from ProfileContainer
@@ -103,6 +113,12 @@ const previewRoute = (id) => {
 
 //   for Show Map
 
+    const setSelectedMini = (marker)=>{
+        console.log('tap')
+        setSelected(marker)
+
+    }
+
     const resetMap = () =>{
         setMarkers([]);
         setPL(false);
@@ -112,12 +128,12 @@ const previewRoute = (id) => {
 
     return(
 
-       <>
+     <>
        
                    
                 
                 {token?
-                  
+                  <div>
                  <Container1>
                         
                         <Container2>
@@ -128,10 +144,13 @@ const previewRoute = (id) => {
                          </Container2>  
                             <Container3>
                                 {props.user? <h3>Welcome {props.user.user.name}</h3>:null}
-                                {playListName?<ShowMap showMarkers={markers} getData={()=>null} getCords={() => null} resetMap={resetMap}/>:<ViewMap setPlayRoute={props.setPlayRoute} history={props.history} user={props.user}  logOutHandler={props.logOutHandler}/>}
+                                {playListName?<ShowMap showMarkers={markers} getData={()=>null} getCords={() => null} resetMap={resetMap}/>:<ViewMap setSelected={setSelectedMini} selected={selected} setPlayRoute={props.setPlayRoute} history={props.history} user={props.user}  logOutHandler={props.logOutHandler}/>}
                             </Container3>
-                        
+                            
                </Container1>
+                {selected? <SpotifyList selected={selected} token={token}/>:null}
+                </div>
+            
 
          :
             <SpotifyAuthScreen/>}

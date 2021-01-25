@@ -1,40 +1,36 @@
-import React, {useState, useEffect} from 'react';
-import { NavLink } from 'react-router-dom'
-import { SpotifyApiContext, Playlist, PlaylistTracks, Artist } from 'react-spotify-api';
-import { List, Segment, Button } from 'semantic-ui-react';
-import ShowMap from "./maps/ShowMap";
+
+import React, { useState, useEffect } from 'react';
+
+
+import 'react-spotify-auth/dist/index.css';
+
 import "@reach/combobox/styles.css";
-
-import SpotifyAuthButton from '../components/mainPageComponents/SpotifyAuthButton';
-
+import styled from 'styled-components';
 
 
 
-const InfoView = (props) => {
-
-    
-
-    const [spotToken, setSpotToken] = useState(localStorage.getItem('spotifyAuthToken'));
-    
-    useEffect(() => {
-        setSpotToken(localStorage.getItem('spotifyAuthToken'));
-    }, [])
+import { List, Segment,} from 'semantic-ui-react';
+import { SpotifyApiContext, Playlist, PlaylistTracks, Artist } from 'react-spotify-api';
 
 
-    return(
-        <div>
-            <ShowMap routeId={props.routeID} infoView={true} getData={()=> null} getCords={() => null} showMarkers={props.showMarkers}/>
-        <div id ='plContainer'>
-                <NavLink to={`/routes/${props.routeID}`} > 
-                    <Button
-                    style={{width: '100%'}}
-                     primary>
-                        Listen to Route
-                    </Button>
-                </NavLink>
-            <SpotifyApiContext.Provider value={spotToken}> 
-            <PlaylistTracks id={props.playlist.split(':')[2]}>
-                {
+
+
+const StyledSegment = styled(Segment)`
+position:fixed;
+bottom:0px;
+z-index:1
+`
+
+
+
+
+
+const SpotifyList = (props) => {
+return (
+    <>
+    <SpotifyApiContext.Provider value={props.token}> 
+                            <PlaylistTracks id={props.selected.playlist.split(':')[2]}>
+                            {
                     (tracks) => {
                         if (tracks.data) {
 
@@ -59,9 +55,9 @@ const InfoView = (props) => {
 
 
                             return (
-                                <Segment inverted>
+                                <StyledSegment inverted>
                                     
-                                    <Playlist id={props.playlist.split(':')[2]}>
+                                    <Playlist id={props.selected.playlist.split(':')[2]}>
                                         {
                                             playlist => {
                                              return playlist.data ? <h4>Playlist Name: {playlist.data.name}</h4> : null
@@ -75,24 +71,26 @@ const InfoView = (props) => {
                                                 {mappedTracks}
                                         </List.Item>
                                     </List>
-                                </Segment>
+                                </StyledSegment>
                             )
                     
                         } else {
                             return (
-                                <SpotifyAuthButton header={'Connect Spotify to View Playlists'} redirectUri={`http://localhost:3001/home`}/>
+                                <h3>dead space</h3>
                                 )
                         }
                     }
                 }
-                   
-                    
-                        </PlaylistTracks>
-            </SpotifyApiContext.Provider> 
-            </div>
-            </div>
-    )
+
+
+
+                             </PlaylistTracks>
+                        </SpotifyApiContext.Provider>      
+                            
+
+    </>
+)
 
 }
 
-export default InfoView
+export default SpotifyList

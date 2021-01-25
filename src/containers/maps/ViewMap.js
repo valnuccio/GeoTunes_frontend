@@ -138,7 +138,7 @@ if (!isLoaded) return 'Loading Maps';
                             anchor: new window.google.maps.Point(15,15),
                         }}
                         onClick={()=>{
-                            setSelected(marker);
+                            props.setSelected(marker);
                             
                             }}
                         />
@@ -153,7 +153,7 @@ if (!isLoaded) return 'Loading Maps';
                             setSelected(null);  
                             }}>
                             <div>
-                                {/* <ShowMap routeID={selected.id} setPlayRoute={props.setPlayRoute} playlist={selected.playlist} showMarkers={selected.subPins} /> */}
+                                
                                 <InfoView routeID={selected.id} setPlayRoute={props.setPlayRoute} playlist={selected.playlist} showMarkers={selected.subPins} />
                             </div>
                         </InfoWindow>) : null}

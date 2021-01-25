@@ -157,12 +157,17 @@ const ShowMap = (props) => {
     if (loadError) return 'Error Loading Maps';
     if (!isLoaded) return 'Loading Maps';
 // is returned only once it is loaded
+
+console.log(props)
     return (
+        
         <MapDiv>
-           
+           {props.infoView? 
+           null:
             <ResetButtonDiv>
                 <StyledButton onClick={props.resetMap}>Reset Map</StyledButton>
             </ResetButtonDiv>
+            }
 
             <GoogleMap
                 mapContainerStyle={mapContainerStyle} //defined above
