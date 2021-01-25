@@ -18,11 +18,6 @@ import "@reach/combobox/styles.css";
 const libraries = ['places'];
 
 
-const MapDiv = styled.div`
-position:relative;
-width:70vw;
-margin-top:10%;
-`
 
 const ResetButtonDiv = styled.div`
 width:15vw;
@@ -50,6 +45,14 @@ const options  = {
 const ShowMap = (props) => {
     const [markers, setMarkers] = useState([]);
     const [isDraggable, setDrag] = useState(false);
+   
+   
+    const MapDiv = styled.div`
+            position:relative;
+            width:auto;
+            margin-top:${props => props.infoView ? '0px':'10%'};
+            `
+
 
     useEffect( () => {
         document.addEventListener("keydown", () => removePin(), false);
@@ -70,7 +73,8 @@ const ShowMap = (props) => {
 
         // this map is being doubled on the show page and also used on the infobox view. hence the different sizes here. 
         // width: '100%',
-        height: props.infoView ? '50vh' : '100vh',
+        width: props.infoView? '30vw':'70vw',
+        height: props.infoView ? '30vh' : '85vh',
     };
 
     const center = props.infoView ? ({
@@ -162,11 +166,11 @@ console.log(props)
     return (
         
         <MapDiv>
-           {props.infoView? 
-           null:
+           {props.home? 
+           
             <ResetButtonDiv>
                 <StyledButton onClick={props.resetMap}>Reset Map</StyledButton>
-            </ResetButtonDiv>
+            </ResetButtonDiv>:null
             }
 
             <GoogleMap

@@ -22,9 +22,14 @@ import styled from 'styled-components';
 
 // test
 
+const StyledInfoWindow = styled(InfoWindow)`
+height:100%;
+width:100%;
+
+`
 const MapDiv = styled.div`
 position:relative;
-width:70vw;
+width: 70vw;
 margin-top:10%;
 
 `
@@ -33,7 +38,7 @@ const libraries = ['places'];
 
 const mapContainerStyle = {
     // width: '90vw',
-    height: '100vh',
+    height: '85vh',
     borderRadius: '3%',
 };
 
@@ -144,19 +149,19 @@ if (!isLoaded) return 'Loading Maps';
                         />
                         ))}
 
-                        {selected ? 
+                        {props.selected ? 
                         (
-                        <InfoWindow 
+                        <StyledInfoWindow 
                         
-                            position={{lat: selected.lat, lng: selected.lng }} 
+                            position={{lat: props.selected.lat, lng: props.selected.lng }} 
                             onCloseClick={()=>{ 
                             setSelected(null);  
                             }}>
                             <div>
                                 
-                                <InfoView routeID={selected.id} setPlayRoute={props.setPlayRoute} playlist={selected.playlist} showMarkers={selected.subPins} />
+                                <InfoView routeID={props.selected.id} setPlayRoute={props.setPlayRoute} playlist={props.selected.playlist} showMarkers={props.selected.subPins} />
                             </div>
-                        </InfoWindow>) : null}
+                        </StyledInfoWindow>) : null}
                     </GoogleMap>
             </MapDiv>
        

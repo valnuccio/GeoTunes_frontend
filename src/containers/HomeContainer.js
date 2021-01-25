@@ -53,21 +53,28 @@ const Container3 = styled.div`
 `
 
 
-const StyledSegment = styled(Segment)`
-position:fixed;
-bottom:0px;
-z-index:1
+
+const ButtonContainer=styled.div`
+width:20vw;
+margin-left:7vw;
+
 `
-// const Container3 = styled.div`
-// borderRadius:40%;
-// `
+
+
+
 const HomeContainer = (props) =>{
 
-    // const [user, setUser]=useState(false)
 
    const[selected, setSelected] = useState(null)
 
     const [token, setToken] = useState(localStorage.getItem('spotifyAuthToken'));
+
+    const HorizontalNav = styled.div`
+    display:flex;
+    height:auto;
+    justify-content:flex-end;
+    margin-top:30px;
+    `
 
     useEffect(() => {
       setToken(localStorage.getItem('spotifyAuthToken'));
@@ -143,12 +150,21 @@ const previewRoute = (id) => {
                             {updatedProfile? <Nav page={'home'} createMode={false} previewRoute={previewRoute} logOutHandler={props.logOutHandler} user={updatedProfile}/>:null}
                          </Container2>  
                             <Container3>
+                                <HorizontalNav>
                                 {props.user? <h3>Welcome {props.user.user.name}</h3>:null}
-                                {playListName?<ShowMap showMarkers={markers} getData={()=>null} getCords={() => null} resetMap={resetMap}/>:<ViewMap setSelected={setSelectedMini} selected={selected} setPlayRoute={props.setPlayRoute} history={props.history} user={props.user}  logOutHandler={props.logOutHandler}/>}
+                                    <ButtonContainer>
+                                        <Button onClick = {props.logOutHandler}> Sign out</Button>
+                                     </ButtonContainer> 
+                                    
+                                    
+
+                                    </HorizontalNav>
+                                    {playListName?<ShowMap home={true} showMarkers={markers} getData={()=>null} getCords={() => null} resetMap={resetMap}/>:<ViewMap setSelected={setSelectedMini} selected={selected} setPlayRoute={props.setPlayRoute} history={props.history} user={props.user}  logOutHandler={props.logOutHandler}/>}
+                                
                             </Container3>
                             
                </Container1>
-                {selected? <SpotifyList selected={selected} token={token}/>:null}
+              
                 </div>
             
 

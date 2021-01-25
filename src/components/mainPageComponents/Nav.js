@@ -122,9 +122,7 @@ const Nav = (props) => {
        
 
 
-        <div>
-            <StyledButton onClick = {props.logOutHandler}> Sign out</StyledButton>
-        </div> 
+
 
     </StyledMenu>
   )
