@@ -54,11 +54,6 @@ const Container3 = styled.div`
 
 
 
-const ButtonContainer=styled.div`
-width:20vw;
-margin-left:7vw;
-
-`
 
 const Page = styled.div`
 height:auto;
@@ -72,7 +67,7 @@ const HomeContainer = (props) =>{
 
     const [token, setToken] = useState(localStorage.getItem('spotifyAuthToken'));
 
-    const HorizontalNav = styled.div`
+    const StyledHorizontalNav = styled.div`
     display:flex;
     height:auto;
     justify-content:flex-end;
@@ -153,15 +148,11 @@ const previewRoute = (id) => {
                             {updatedProfile? <Nav page={'home'} createMode={false} previewRoute={previewRoute} logOutHandler={props.logOutHandler} user={updatedProfile}/>:null}
                          </Container2>  
                             <Container3>
-                                <HorizontalNav>
-                                {props.user? <h3>Welcome {props.user.user.name}</h3>:null}
-                                    <ButtonContainer>
-                                        <Button onClick = {props.logOutHandler}> Sign out</Button>
-                                     </ButtonContainer> 
+                                <StyledHorizontalNav user={props.user} logOutHandler={props.logOutHandler}/>
+                                
                                     
                                     
 
-                                    </HorizontalNav>
                                     {playListName?<ShowMap home={true} showMarkers={markers} getData={()=>null} getCords={() => null} resetMap={resetMap}/>:<ViewMap setSelected={setSelectedMini} selected={selected} setPlayRoute={props.setPlayRoute} history={props.history} user={props.user}  logOutHandler={props.logOutHandler}/>}
                                 
                             </Container3>
