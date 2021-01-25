@@ -38,7 +38,7 @@ const libraries = ['places'];
 
 const mapContainerStyle = {
     // width: '90vw',
-    height: '85vh',
+    height: '120vh',
     borderRadius: '3%',
 };
 
@@ -150,15 +150,17 @@ if (!isLoaded) return 'Loading Maps';
                         ))}
 
                         {props.selected ? 
-                        (
-                        <StyledInfoWindow 
                         
+                        (
+                            
+                        <StyledInfoWindow 
+                            
                             position={{lat: props.selected.lat, lng: props.selected.lng }} 
                             onCloseClick={()=>{ 
                             setSelected(null);  
                             }}>
                             <div>
-                                
+                               
                                 <InfoView routeID={props.selected.id} setPlayRoute={props.setPlayRoute} playlist={props.selected.playlist} showMarkers={props.selected.subPins} />
                             </div>
                         </StyledInfoWindow>) : null}

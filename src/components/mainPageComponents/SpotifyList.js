@@ -77,7 +77,7 @@ return (
                     
                         } else {
                             return (
-                                <h3>dead space</h3>
+                                <h3>Loading...</h3>
                                 )
                         }
                     }

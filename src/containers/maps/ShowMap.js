@@ -50,7 +50,7 @@ const ShowMap = (props) => {
     const MapDiv = styled.div`
             position:relative;
             width:auto;
-            margin-top:${props => props.infoView ? '0px':'10%'};
+            
             `
 
 
@@ -73,8 +73,9 @@ const ShowMap = (props) => {
 
         // this map is being doubled on the show page and also used on the infobox view. hence the different sizes here. 
         // width: '100%',
+       
         width: props.infoView? '30vw':'70vw',
-        height: props.infoView ? '30vh' : '85vh',
+        height: props.infoView ? '30vh' : '120vh',
     };
 
     const center = props.infoView ? ({
@@ -221,21 +222,7 @@ console.log(props)
                     getData={props.getData}
                     /> : null} 
             
-               {/* dont think I need this here anymore */}
-{/* 
-                {selected ? 
-                (<InfoWindow position={{lat: selected.lat, lng: selected.lng }} onCloseClick={()=>{
-                    setSelected(null);  
-                }}>
-                    <div>
-                        <h2>
-                            Playlist created at:
-                        </h2>
-                            <p> {formatRelative(selected.time, new Date())}</p>
-                            <h2> cords:</h2>
-                            <p>lat: {selected.lat}, lng:{selected.lng} </p>
-                    </div>
-                </InfoWindow>) : null} */}
+             
 
 
             </GoogleMap>

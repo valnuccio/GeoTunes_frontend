@@ -35,6 +35,8 @@ border-top-right-radius:2%;
 
 const Container1 = styled.div`
 display:flex;
+justify-content:center;
+
 position:relative;
 height:100%;
 width:100%;
@@ -46,17 +48,22 @@ width:100%;
 const Container2 = styled.div`
 display:flex;
 flex-direction:column;
-position:relative;
+position:absolute;
+left:10px;
 height:auto;
+justify-content: flex-start;
 
 `
 
 const Container3 = styled.div`
+position:absolute;
+right:10px;
 `
 
 
 const Page = styled.div`
-height:auto;
+height:100%
+width:
 `
 
 
@@ -80,7 +87,7 @@ const HomeContainer = (props) =>{
         console.log(foundProfile)
         setUpdatedProfile(foundProfile) 
     })
-    document.body.style.height="1200px"
+    document.body.style.height="1400px"
     } 
 
    
@@ -127,6 +134,7 @@ const previewRoute = (id) => {
         setPL(false);
         setPlaylistID(null);
         setPlaylist(false);
+        setSelected(null)
     }
 
     return(

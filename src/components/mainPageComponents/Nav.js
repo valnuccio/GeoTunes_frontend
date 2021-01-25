@@ -10,6 +10,7 @@ flex-direction:column;
 justify-content:space-between;
 width:20vw;
 margin-top:40px;
+margin-bottom:40px;
 `
 
 const ListContainer=styled.div`
@@ -27,6 +28,8 @@ const StyledNavLink = styled(NavLink)`
 
 
 `
+
+
 
 const Nav = (props) => {
 
@@ -113,6 +116,7 @@ const Nav = (props) => {
                     }
                     </div>
                     </List>):
+
                     <p> Looks like you don't have any routes Favorited yet!</p>}
     </StyledMenu>
    
