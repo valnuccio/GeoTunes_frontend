@@ -60,6 +60,9 @@ margin-left:7vw;
 
 `
 
+const Page = styled.div`
+height:auto;
+`
 
 
 const HomeContainer = (props) =>{
@@ -140,7 +143,7 @@ const previewRoute = (id) => {
                    
                 
                 {token?
-                  <div>
+                  <Page>
                  <Container1>
                         
                         <Container2>
@@ -164,8 +167,8 @@ const previewRoute = (id) => {
                             </Container3>
                             
                </Container1>
-              
-                </div>
+                    {/* {selected? <SpotifyList selected={selected} token={token}/>:null} */}
+                </Page>
             
 
          :
