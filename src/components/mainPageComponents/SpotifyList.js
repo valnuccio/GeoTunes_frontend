@@ -14,12 +14,12 @@ import { SpotifyApiContext, Playlist, PlaylistTracks, Artist } from 'react-spoti
 
 
 
+const Container=styled.div`
 
-const StyledSegment = styled(Segment)`
-position:fixed;
-bottom:0px;
-z-index:1
+
+overflow:scroll;
 `
+
 
 
 
@@ -27,7 +27,8 @@ z-index:1
 
 const SpotifyList = (props) => {
 return (
-    <>
+   
+    <Container>
     <SpotifyApiContext.Provider value={props.token}> 
                             <PlaylistTracks id={props.selected.playlist.split(':')[2]}>
                             {
@@ -55,7 +56,7 @@ return (
 
 
                             return (
-                                <StyledSegment inverted>
+                                <Segment inverted>
                                     
                                     <Playlist id={props.selected.playlist.split(':')[2]}>
                                         {
@@ -71,7 +72,7 @@ return (
                                                 {mappedTracks}
                                         </List.Item>
                                     </List>
-                                </StyledSegment>
+                                </Segment>
                             )
                     
                         } else {
@@ -87,8 +88,8 @@ return (
                              </PlaylistTracks>
                         </SpotifyApiContext.Provider>      
                             
-
-    </>
+                        </Container>
+    
 )
 
 }

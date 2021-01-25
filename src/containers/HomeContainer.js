@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react';
-
+import SpotifyList from '../components/mainPageComponents/SpotifyList'
 import ViewMap from './maps/ViewMap';
 import 'react-spotify-auth/dist/index.css';
 import mainLogo from '../../src/images/mainLogo.png';
-import SpotifyList from '../components/mainPageComponents/SpotifyList'
 import SpotifyAuthScreen from './SpotifyAuthenticationScreen';
 import "@reach/combobox/styles.css";
 import styled from 'styled-components';
 import Nav from '../components/mainPageComponents/Nav';
 import ShowMap from '../containers/maps/ShowMap'
-
+import HorizontalNav from '../components/mainPageComponents/HorizontalNav'
 import { getUser, playroutes } from '../railsserver';
-import { List, Segment, Button } from 'semantic-ui-react';
-import { SpotifyApiContext, Playlist, PlaylistTracks, Artist } from 'react-spotify-api';
+
 
 
 
@@ -40,19 +38,21 @@ display:flex;
 position:relative;
 height:100%;
 width:100%;
+
+
 // background: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
 `
 
 const Container2 = styled.div`
 display:flex;
 flex-direction:column;
+position:relative;
+height:auto;
 
 `
 
 const Container3 = styled.div`
 `
-
-
 
 
 const Page = styled.div`
@@ -67,12 +67,7 @@ const HomeContainer = (props) =>{
 
     const [token, setToken] = useState(localStorage.getItem('spotifyAuthToken'));
 
-    const StyledHorizontalNav = styled.div`
-    display:flex;
-    height:auto;
-    justify-content:flex-end;
-    margin-top:30px;
-    `
+  
 
     useEffect(() => {
       setToken(localStorage.getItem('spotifyAuthToken'));
@@ -85,8 +80,11 @@ const HomeContainer = (props) =>{
         console.log(foundProfile)
         setUpdatedProfile(foundProfile) 
     })
-      
-    }, [token])
+    document.body.style.height="1200px"
+    } 
+
+   
+    , [token])
 
     
 
@@ -135,37 +133,36 @@ const previewRoute = (id) => {
 
      <>
        
-                   
+         <Container1> 
                 
                 {token?
-                  <Page>
-                 <Container1>
-                        
+                
+                 
+                        <>
                         <Container2>
                             <ImageContainer>
                                 <Image src={mainLogo}></Image>
                             </ImageContainer>
-                            {updatedProfile? <Nav page={'home'} createMode={false} previewRoute={previewRoute} logOutHandler={props.logOutHandler} user={updatedProfile}/>:null}
+                            {updatedProfile? <Nav token={token} selected={selected} page={'home'} createMode={false} previewRoute={previewRoute} logOutHandler={props.logOutHandler} user={updatedProfile}/>:null}
+                            {selected? <SpotifyList token={token} selected={selected}/>:null}
                          </Container2>  
                             <Container3>
-                                <StyledHorizontalNav user={props.user} logOutHandler={props.logOutHandler}/>
+                                <HorizontalNav user={props.user} logOutHandler={props.logOutHandler}/>
                                 
-                                    
-                                    
-
                                     {playListName?<ShowMap home={true} showMarkers={markers} getData={()=>null} getCords={() => null} resetMap={resetMap}/>:<ViewMap setSelected={setSelectedMini} selected={selected} setPlayRoute={props.setPlayRoute} history={props.history} user={props.user}  logOutHandler={props.logOutHandler}/>}
                                 
                             </Container3>
                             
-               </Container1>
-                    {/* {selected? <SpotifyList selected={selected} token={token}/>:null} */}
-                </Page>
+                            </>
+              
+                   
+                
             
 
          :
             <SpotifyAuthScreen/>}
             
-           
+            </Container1>
         </>
     )
 };

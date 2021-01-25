@@ -30,7 +30,7 @@ width:100%;
 const MapDiv = styled.div`
 position:relative;
 width: 70vw;
-margin-top:10%;
+
 
 `
 

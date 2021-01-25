@@ -9,21 +9,31 @@ import styled from 'styled-components';
 
 import { Button } from 'semantic-ui-react';
 
+const StyledContainer=styled.div`
 
-const HorizontalNav = (props) =>{
+display:flex;
+width:100%;
+height:30vh;
+justify-content:flex-end;
 
 
+`
 const ButtonContainer=styled.div`
 width:20vw;
 margin-left:7vw;
 
 `
+
+const HorizontalNav = (props) =>{
+
+
     return(
-        <>
-                {props.user? <h3>Welcome {props.user.user.name}</h3>:null}
+        <>  <StyledContainer>
+                     <h3>Welcome {props.user.user.name}</h3>
                                     <ButtonContainer>
                                         <Button onClick = {props.logOutHandler}> Sign out</Button>
                                      </ButtonContainer> 
+             </StyledContainer>
          </>
     )
 }

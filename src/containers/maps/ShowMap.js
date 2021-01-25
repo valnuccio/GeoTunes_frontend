@@ -165,7 +165,7 @@ const ShowMap = (props) => {
 console.log(props)
     return (
         
-        <MapDiv>
+        <MapDiv infoView={props.infoView}>
            {props.home? 
            
             <ResetButtonDiv>

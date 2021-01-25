@@ -40,13 +40,7 @@ const SpotifyAuthScreen=()=>{
 
     
 
-    useEffect(() => {
-        document.body.style.height = "100vh"
-        // Specify how to clean up after this effect:
-        return function cleanup() {
-          
-        };
-      });
+  
     
     return (
         <>

@@ -5,9 +5,8 @@ const GlobalStyle= createGlobalStyle`
 
 
 body {
-    margin: 0;
+    
     height:auto;
-    width:100%;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif,'Quattrocento Sans';
@@ -43,12 +42,9 @@ body {
 
   #root{
     height:100%;
-    
     width:100%;
-    position:absolute;
-    display:flex;
-    justify-content:center;
-    align-items: center;
+    
+   
     
   }
   

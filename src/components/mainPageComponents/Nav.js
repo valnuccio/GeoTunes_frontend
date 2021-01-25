@@ -2,17 +2,19 @@ import React from 'react';
 import { Button, List, Icon, Segment, Header} from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import SpotifyList from 'styled-components';
 
 const StyledMenu = styled.div`
 display:flex;
 flex-direction:column;
 justify-content:space-between;
-width:30vw;
-height:20vh;
+width:20vw;
 margin-top:40px;
 `
 
-
+const ListContainer=styled.div`
+overflow:scroll;
+`
 
 const StyledButton = styled(Button)`
 width:100%;
@@ -23,7 +25,7 @@ margin:5%;
 const StyledNavLink = styled(NavLink)`
 
 
-// width:100%;
+
 `
 
 const Nav = (props) => {
@@ -32,6 +34,7 @@ const Nav = (props) => {
 // console.log(props.user)
 
   return(
+     
     <StyledMenu id='mainNav'>
         {props.page!=="home"? 
           
@@ -61,7 +64,7 @@ const Nav = (props) => {
 
                         props.user.user.play_routes.map( (r, i) => {
                             return(
-                                <div key={i} className="ui segment">
+                                <ListContainer key={i} className="ui segment">
                                 <List.Item id={`${r.id}`} key={`${r.id}`} onClick={(e) => props.previewRoute(e.target.id)} key={r.id} >
                                     <Icon id={`${r.id}`} key={`${r.id}`}name='headphones' />
                                     <List.Content>
@@ -69,7 +72,7 @@ const Nav = (props) => {
                                       
                                      </List.Content>
                                 </List.Item>
-                                </div>
+                                </ListContainer>
                             ) 
                         })
                     }
@@ -86,16 +89,16 @@ const Nav = (props) => {
             </StyledNavLink>
 
             
-                  <Segment inverted>
-                        <Header as='h2' icon='heartbeat' content='Favorite Routes' />
-                    </Segment>
+            <Segment inverted>
+                <Header as='h2' icon='heartbeat' content='Favorite Routes' />
+            </Segment>
                     {props.user.user.routes.length>0? (                    <List>
                     <div class="ui raised segments">
                     {
                             
                         props.user.user.routes.map( (r, i) => {
                             return(
-                                <div key={i} class="ui segment">
+                                <ListContainer key={i} class="ui segment">
                                 <List.Item id={`${r.id}`} key={`${r.id}`}onClick={(e) => props.previewRoute(e.target.id)} key={r.id} >
                                     <Icon id={`${r.id}`} name='headphones' />
                                     <List.Content>
@@ -103,7 +106,7 @@ const Nav = (props) => {
                                     
                                      </List.Content>
                                 </List.Item>
-                                </div>
+                                </ListContainer>
                             
                             ) 
                         })
@@ -111,20 +114,9 @@ const Nav = (props) => {
                     </div>
                     </List>):
                     <p> Looks like you don't have any routes Favorited yet!</p>}
-
-
-
-
-
-
-
-
-       
-
-
-
-
     </StyledMenu>
+   
+   
   )
 }
 
