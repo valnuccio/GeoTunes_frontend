@@ -61,11 +61,6 @@ right:10px;
 `
 
 
-const Page = styled.div`
-height:100%
-width:
-`
-
 
 const HomeContainer = (props) =>{
 
@@ -151,7 +146,7 @@ const previewRoute = (id) => {
                             <ImageContainer>
                                 <Image src={mainLogo}></Image>
                             </ImageContainer>
-                            {updatedProfile? <Nav token={token} selected={selected} page={'home'} createMode={false} previewRoute={previewRoute} logOutHandler={props.logOutHandler} user={updatedProfile}/>:null}
+                            {updatedProfile? <Nav token={token} selected={selected} page={'home'} createMode={false} previewRoute={previewRoute}  user={updatedProfile}/>:null}
                             {selected? <SpotifyList token={token} selected={selected}/>:null}
                          </Container2>  
                             <Container3>
@@ -168,7 +163,13 @@ const previewRoute = (id) => {
             
 
          :
-            <SpotifyAuthScreen/>}
+
+
+                    <SpotifyAuthScreen/>
+
+
+
+            }
             
             </Container1>
         </>

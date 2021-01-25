@@ -41,18 +41,19 @@ const options  = {
 
 };
 
+const MapDiv = styled.div`
+position:relative;
+width:auto;
+
+`
+
 
 const ShowMap = (props) => {
     const [markers, setMarkers] = useState([]);
     const [isDraggable, setDrag] = useState(false);
    
    
-    const MapDiv = styled.div`
-            position:relative;
-            width:auto;
-            
-            `
-
+   
 
     useEffect( () => {
         document.addEventListener("keydown", () => removePin(), false);
