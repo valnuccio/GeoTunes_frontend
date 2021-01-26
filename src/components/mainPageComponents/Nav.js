@@ -39,49 +39,60 @@ const Nav = (props) => {
   return(
      
     <StyledMenu id='mainNav'>
+
+
         {props.page!=="home"? 
           
             <StyledNavLink to={'/home'}>
                 <StyledButton>Home</StyledButton>
             </StyledNavLink>
-:null}
+        :null
+        
+        }
 
       
-        
-        
+        {props.page!=="show"?(
 
+            <>
         <div>
           
-
-
-
-
-
-            <Segment inverted>
+                     <Segment inverted>
                         <Header as='h2' icon='map pin' content='My Routes:' />
                     </Segment>
-              {props.user.user.play_routes.length >0? (
-                    <List>
-                    <div className="ui raised segments">
-                    {
 
-                        props.user.user.play_routes.map( (r, i) => {
-                            return(
-                                <ListContainer key={i} className="ui segment">
-                                <List.Item id={`${r.id}`} key={`${r.id}`} onClick={(e) => props.previewRoute(e.target.id)} key={r.id} >
-                                    <Icon id={`${r.id}`} key={`${r.id}`}name='headphones' />
-                                    <List.Content>
-                                        <List.Header id={`${r.id}`} key={`${r.id}`}>{r.name}</List.Header>
-                                      
-                                     </List.Content>
-                                </List.Item>
-                                </ListContainer>
-                            ) 
-                        })
-                    }
-                    </div>
-                    </List>) : (<h3>No routes yet</h3>)}
-            </div>
+
+              {props.user.user.play_routes.length >0? (
+                    
+                    
+                    <List>
+                            <div className="ui raised segments">
+                                {
+
+                                        props.user.user.play_routes.map( (r, i) => {
+                                        return(
+                                            <ListContainer key={i} className="ui segment">
+                                                <List.Item id={`${r.id}`} key={`${r.id}`} onClick={(e) => props.previewRoute(e.target.id)} key={r.id} >
+                                                    <Icon id={`${r.id}`} key={`${r.id}`}name='headphones' />
+                                                    <List.Content>
+                                                        <List.Header id={`${r.id}`} key={`${r.id}`}>{r.name}</List.Header>
+                                                    
+                                                    </List.Content>
+                                                </List.Item>
+                                            </ListContainer>
+                                        ) 
+                                    })
+                                }
+                            </div>
+
+
+                    </List>) 
+                    : 
+                    
+                    (<h3>No routes yet</h3>)
+                }
+        </div>
+
+
 
             <StyledNavLink to={'/create'}>
               {!props.createMode ? 
@@ -95,7 +106,8 @@ const Nav = (props) => {
             <Segment inverted>
                 <Header as='h2' icon='heartbeat' content='Favorite Routes' />
             </Segment>
-                    {props.user.user.routes.length>0? (                    <List>
+                    {props.user.user.routes.length>0? ( 
+                     <List>
                     <div class="ui raised segments">
                     {
                             
@@ -118,6 +130,13 @@ const Nav = (props) => {
                     </List>):
 
                     <p> Looks like you don't have any routes Favorited yet!</p>}
+       
+       </>
+        )
+
+        :
+        
+        null}
     </StyledMenu>
    
    

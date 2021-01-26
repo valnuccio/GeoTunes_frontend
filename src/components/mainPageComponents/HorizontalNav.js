@@ -13,7 +13,7 @@ const StyledContainer=styled.div`
 
 display:flex;
 width:100%;
-height:30vh;
+height:20vh;
 justify-content:flex-end;
 
 
@@ -29,7 +29,7 @@ const HorizontalNav = (props) =>{
 
     return(
         <>  <StyledContainer>
-                     <h3>Welcome {props.user.user.name}</h3>
+                     {/* <h3>{props.user.user.name}</h3> */}
                                     <ButtonContainer>
                                         <Button onClick = {props.logOutHandler}> Sign out</Button>
                                      </ButtonContainer> 

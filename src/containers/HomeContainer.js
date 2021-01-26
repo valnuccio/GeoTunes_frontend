@@ -10,8 +10,7 @@ import Nav from '../components/mainPageComponents/Nav';
 import ShowMap from '../containers/maps/ShowMap'
 import HorizontalNav from '../components/mainPageComponents/HorizontalNav'
 import { getUser, playroutes } from '../railsserver';
-
-
+import Footer from '../components/mainPageComponents/Footer';
 
 
 
@@ -22,6 +21,8 @@ width:20vw;
 
 
 `
+
+
 
 const ImageContainer= styled.div`
 background:black;
@@ -36,12 +37,8 @@ border-top-right-radius:2%;
 const Container1 = styled.div`
 display:flex;
 justify-content:center;
-
 position:relative;
-height:100%;
 width:100%;
-
-
 // background: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
 `
 
@@ -132,6 +129,8 @@ const previewRoute = (id) => {
         setSelected(null)
     }
 
+
+    console.log()
     return(
 
      <>
@@ -148,7 +147,10 @@ const previewRoute = (id) => {
                             </ImageContainer>
                             {updatedProfile? <Nav token={token} selected={selected} page={'home'} createMode={false} previewRoute={previewRoute}  user={updatedProfile}/>:null}
                             {selected? <SpotifyList token={token} selected={selected}/>:null}
-                         </Container2>  
+                         </Container2> 
+
+                         
+                          
                             <Container3>
                                 <HorizontalNav user={props.user} logOutHandler={props.logOutHandler}/>
                                 
@@ -171,7 +173,9 @@ const previewRoute = (id) => {
 
             }
             
+           
             </Container1>
+            <Footer/>
         </>
     )
 };

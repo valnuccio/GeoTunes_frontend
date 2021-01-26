@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Icon, Label } from 'semantic-ui-react';
 import { getUser, favCreate, playroutes } from '../../railsserver';
+import styled from 'styled-components'
+
+const Container=styled.div`
+width:100%;
+`
 
 const UpdateRouteToggleButton = (props) => {
 
@@ -92,7 +97,8 @@ const UpdateRouteToggleButton = (props) => {
     return(
         updatedUser && isRouteMine() ? 
         (  
-        <> 
+        
+        <Container>
             {editSaveToggle ? (
                 <Button 
                     as='div' 
@@ -148,11 +154,12 @@ const UpdateRouteToggleButton = (props) => {
             )}
             
             
-        </>  
+            </Container>
         ) 
         : 
         (
             updatedUser && favToggle ? (
+                <Container>
                 <Button onClick={favRoute} as='div' labelPosition='right'>
 
                     <Button id="fave-button" color='red'>
@@ -164,7 +171,9 @@ const UpdateRouteToggleButton = (props) => {
                             {updatedRoute && updatedRoute.users ? updatedRoute.users.length : null}
                         </Label>
                 </Button>
+                </Container>
             ) : (
+                <Container>
                 <Button onClick={unFavRoute} as='div' labelPosition='right'>
                     <Button id="fave-button" color='red'>
                         <Icon id="fave-button" name='heart' />
@@ -175,6 +184,7 @@ const UpdateRouteToggleButton = (props) => {
                         {updatedRoute && updatedRoute.users ? updatedRoute.users.length : null}
                         </Label>
                 </Button>
+                </Container>
             )
         )
     )
