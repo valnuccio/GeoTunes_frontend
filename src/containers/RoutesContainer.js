@@ -153,7 +153,7 @@ const RoutesContainer = (props) =>{
                             <ImageContainer>
                                 <Image src={mainLogo}></Image>
                             </ImageContainer>
-                            {updatedProfile && routeObj? <Nav token={token} selected={routeObj} page={'home'} createMode={false}  user={updatedProfile}/>:null}
+                            {updatedProfile && routeObj? <Nav page={'show'} token={token} selected={routeObj} createMode={false}  user={updatedProfile} distance={distance}/> :null}
                            {/* {routeObj.playlist && token? <SpotifyList token={props.token} selected={routeObj}/>:null} */}
                            
                            <UpdateRouteToggleButton toggle={toggle} patch={patchRequest} routeID={props.routerID} user={props.user.user} cords={newArray} /> 

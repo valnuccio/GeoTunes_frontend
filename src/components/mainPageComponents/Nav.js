@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Button, List, Icon, Segment, Header} from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
@@ -33,7 +33,11 @@ const StyledNavLink = styled(NavLink)`
 
 const Nav = (props) => {
 
+const [distance, setDistance] = useState(null)
 
+useEffect(()=>{
+setDistance(props.distance)
+},[props.disance])
 // console.log(props.user)
 
   return(
@@ -41,23 +45,17 @@ const Nav = (props) => {
     <StyledMenu id='mainNav'>
 
 
-        {props.page!=="home"? 
-          
-            <StyledNavLink to={'/home'}>
-                <StyledButton>Home</StyledButton>
-            </StyledNavLink>
-        :null
+       
+         
         
-        }
-
       
-        {props.page!=="show"?(
+        {props.page !== "show"?
 
             <>
         <div>
           
                      <Segment inverted>
-                        <Header as='h2' icon='map pin' content='My Routes:' />
+                        <Header as='h2' icon='map pin' content='My Routes' />
                     </Segment>
 
 
@@ -127,16 +125,41 @@ const Nav = (props) => {
                         })
                     }
                     </div>
-                    </List>):
+                    </List>):(
 
-                    <p> Looks like you don't have any routes Favorited yet!</p>}
+                    <p> Looks like you don't have any routes Favorited yet!</p>)}
        
-       </>
-        )
+       </> :
+        <>
+        <StyledNavLink to={'/home'}>
+            <StyledButton>Home</StyledButton>
+        </StyledNavLink>
+         <Segment inverted>
+         <Header as='h2' icon='map pin' content='Total Distance' />
+     </Segment>
 
-        :
-        
-        null}
+     <p>{distance}</p>    
+
+
+<StyledNavLink to={'/create'}>
+{!props.createMode ? 
+   <StyledButton>Create Path</StyledButton> 
+   :
+   <StyledButton onClick={props.createPath}> Submit Path</StyledButton>
+}
+</StyledNavLink>
+
+
+<Segment inverted>
+ <Header as='h2' icon='heartbeat' content='Favorite Routes' />
+</Segment>
+<p>{`${parseFloat(distance) * 20}` } minutes</p>
+</>
+       
+       
+       }
+
+       
     </StyledMenu>
    
    
