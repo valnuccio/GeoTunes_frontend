@@ -21,7 +21,15 @@ width:20vw;
 
 
 `
+ const Page = styled.div`
+ height:100%;
+ width:100%;
+ display:flex;
+ flex-direction:column;
+ position:relative;
+ `
 
+ 
 
 
 const ImageContainer= styled.div`
@@ -39,6 +47,7 @@ display:flex;
 justify-content:center;
 position:relative;
 width:100%;
+
 // background: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
 `
 
@@ -49,6 +58,8 @@ position:absolute;
 left:10px;
 height:auto;
 justify-content: flex-start;
+width:25vw;
+
 
 `
 
@@ -175,6 +186,7 @@ const previewRoute = (id) => {
             
            
             </Container1>
+            
             <Footer/>
         </>
     )

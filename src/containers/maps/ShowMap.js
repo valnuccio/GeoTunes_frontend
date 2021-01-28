@@ -76,7 +76,7 @@ const ShowMap = (props) => {
         // width: '100%',
        
         width: props.infoView? '30vw':'70vw',
-        height: props.infoView ? '30vh' : '120vh',
+        height: props.infoView ? '30vh' : '100vh',
     };
 
     const center = props.infoView ? ({

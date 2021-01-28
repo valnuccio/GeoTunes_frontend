@@ -15,6 +15,7 @@ import { SpotifyApiContext, Playlist, PlaylistTracks, Artist } from 'react-spoti
 
 const Container=styled.div`
 overflow:scroll;
+max-height:60vh;
 `
 
 
@@ -24,7 +25,7 @@ overflow:scroll;
 
 const SpotifyList = (props) => {
 
-    console.log('beep', props.selected.playlist.split(':')[2])
+    console.log('beep', props.selected.playlist)
 return (
    
     <Container>

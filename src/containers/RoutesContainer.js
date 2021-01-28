@@ -10,10 +10,9 @@ import { getUser} from '../railsserver';
 import styled from 'styled-components';
 import mainLogo from '../../src/images/mainLogo.png';
 import HorizontalNav from '../components/mainPageComponents/HorizontalNav';
-import DirectionsInfo from '../components/MapComponents/DirectionsInfo';
 import DirectionsRendered from '../components/MapComponents/DirectionsRendered';
 import Footer from '../components/mainPageComponents/Footer';
-import SpotifyList from '../components/mainPageComponents/SpotifyList'
+
 
 
 const Container1 = styled.div`
@@ -21,7 +20,7 @@ display:flex;
 justify-content:center;
 position:relative;
 width:100%;
-height:100%;
+
 // background: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
 `
 const Image = styled.img`
@@ -30,10 +29,7 @@ width:20vw;
 
 
 `
-const Box = styled.div`
-width:25vw;
-padding:5px;
-`
+
 
 
 const Container2 = styled.div`
@@ -43,7 +39,7 @@ position:absolute;
 left:10px;
 height:auto;
 justify-content: flex-start;
-widht:30vw;
+width:25vw;
 
 
 `
@@ -51,6 +47,7 @@ widht:30vw;
 const Container3 = styled.div`
 position:absolute;
 right:10px;
+max-width: 70vw;
 
 `
 
