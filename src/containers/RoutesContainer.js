@@ -12,7 +12,7 @@ import mainLogo from '../../src/images/mainLogo.png';
 import HorizontalNav from '../components/mainPageComponents/HorizontalNav';
 import DirectionsRendered from '../components/MapComponents/DirectionsRendered';
 import Footer from '../components/mainPageComponents/Footer';
-
+import CreateMap from '../containers/maps/CreateMap'
 
 
 const Container1 = styled.div`
@@ -20,7 +20,7 @@ display:flex;
 justify-content:center;
 position:relative;
 width:100%;
-
+height:90%;
 // background: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
 `
 const Image = styled.img`
@@ -37,7 +37,7 @@ display:flex;
 flex-direction:column;
 position:absolute;
 left:10px;
-height:auto;
+height:100%;
 justify-content: flex-start;
 width:25vw;
 
@@ -74,14 +74,41 @@ const RoutesContainer = (props) =>{
     const [markers, setMarkers] = useState([]);
     const [newArray, setNewArray]= useState([]);
     const [distance, setDistance] = useState('')
+    const [duration, setDuration] = useState('')
 
     const getData = (obj) => {
-     console.log('getData:', obj)
-     setDistance(obj.routes[0].legs[0].distance.text)
-     console.log(obj.routes[0])
+     
+     let x= distanceMath(obj)
+     let y= durationMath(obj)
+     setDistance(x)
+     setDuration(y)
+     
+   
+
     }
 
+    const distanceMath = (obj) => {
+        if (obj.routes[0].legs.length>1){
+        
+        let z= obj.routes[0].legs.map((ele) => parseFloat(ele.distance.text))
+        return z.reduce((a,b) => a+b)
+        } else {
+          
+            return parseFloat(obj.routes[0].legs[0].distance.text)
+        }
+     
+    }
 
+    const durationMath = (obj)=>{
+        if (obj.routes[0].legs.length>1){
+            let z= obj.routes[0].legs.map((ele) => parseFloat(ele.duration.text))
+            return z.reduce((a,b) => a+b)
+
+        } else {
+            return parseFloat(obj.routes[0].legs[0].duration.text)
+        }
+     
+    }
 
     const patchRequest = () => {
         
@@ -92,7 +119,7 @@ const RoutesContainer = (props) =>{
                 'headers':'application/json',
                 'Authorization': `Bearer ${localStorage.getItem('token')}`,
                 },
-            body: JSON.stringify({cords: newArray})
+            body: JSON.stringify({cords: markers})
         }
 
         fetch(playroutes + props.routerID, options).then().then()
@@ -101,6 +128,8 @@ const RoutesContainer = (props) =>{
 
     
     const [routeName, setRouteName] = useState('');
+
+   
     useEffect(
         ()=> {
                 localStorage.setItem('currentRoute', props.routerID);
@@ -110,7 +139,7 @@ const RoutesContainer = (props) =>{
                 })
                 .then(res=>res.json())
                 .then(route =>{
-                    console.log(route)
+                    
                     let cords = prepPinRender(route);
                     setRouteObj(route);
                     setMarkers(cords);
@@ -126,7 +155,7 @@ const RoutesContainer = (props) =>{
           })
           .then( r => r.json())
           .then(foundProfile => { 
-              console.log(foundProfile)
+              
               setUpdatedProfile(foundProfile) 
           })
           document.body.style.height="1400px"
@@ -135,7 +164,8 @@ const RoutesContainer = (props) =>{
          
           , [token])
     
-    const [isDragable, toggle] = useToggle(false);
+    const [isDraggable, toggle] = useToggle(false);
+      
 
     return (
         <>
@@ -150,7 +180,7 @@ const RoutesContainer = (props) =>{
                             <ImageContainer>
                                 <Image src={mainLogo}></Image>
                             </ImageContainer>
-                            {updatedProfile && routeObj? <Nav page={'show'} token={token} selected={routeObj} createMode={false}  user={updatedProfile} distance={distance}/> :null}
+                            {updatedProfile && routeObj? <Nav page={'show'} token={token} selected={routeObj} createMode={false}  user={updatedProfile} distance={distance} duration={duration}/> :null}
                            {/* {routeObj.playlist && token? <SpotifyList token={props.token} selected={routeObj}/>:null} */}
                            
                            <UpdateRouteToggleButton toggle={toggle} patch={patchRequest} routeID={props.routerID} user={props.user.user} cords={newArray} /> 
@@ -160,9 +190,9 @@ const RoutesContainer = (props) =>{
                          
                           
                             <Container3>
-                                <HorizontalNav user={updatedProfile} logOutHandler={props.logOutHandler}/>
+                                <HorizontalNav home={false} user={updatedProfile} logOutHandler={props.logOutHandler}/>
                                 
-                                    <ShowMap home={false} showMarkers={markers} getData={()=>null} getCords={() => null} />
+                                    {toggle?<CreateMap setMarkers={(e)=>setMarkers(e)} getData={getData} markers={markers}/> :<ShowMap showMarkers={markers} getData={getData} getCords={() => null} />}
                                     <DirectionsRendered/>
                             </Container3>
                             

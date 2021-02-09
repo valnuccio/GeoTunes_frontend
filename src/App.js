@@ -8,12 +8,13 @@ import {GlobalStyle} from '../src/theme/globalstyle';
 
 import HomeContainer from './containers/HomeContainer';
 import PreviewContainer from './containers/PreviewContainer';
-import CreateMap from './containers/maps/CreateMap';
+
 import RoutesContainer from './containers/RoutesContainer';
 import ProfileContainer from './containers/ProfileContainer';
 
 
 import {getUser as getUserRoute, users as userRoute, login as loginRoute} from './railsserver';
+import CreateContainer from './containers/CreateContainer';
 
 
 const App = (props) => {
@@ -140,7 +141,7 @@ const App = (props) => {
             <Switch>
               
               <Route path='/home' render={() => <HomeContainer history = {history}  user={user} logOutHandler={logOutHandler}/>}/>
-              <Route  path="/create" render={() => <CreateMap history={history} user={user} logOutHandler={logOutHandler}/>}/> 
+              <Route  path="/create" render={() => <CreateContainer history={history} user={user} logOutHandler={logOutHandler}/>}/>  
               <Route  path="/routes/:id" render={(routerProps) => {
                   let id = parseInt(routerProps.match.params.id)
                   return <RoutesContainer user={user} routerID={id} logOutHandler={logOutHandler} />
@@ -157,6 +158,7 @@ const App = (props) => {
                 return <ProfileContainer userID = {id} user={user} logOutHandler={logOutHandler} />
               }} />
               <Route path='/' render={() => <HomeContainer history = {history}  user={user} logOutHandler={logOutHandler}/>}/>
+              <GlobalStyle/>
             </Switch> 
        </>
       )

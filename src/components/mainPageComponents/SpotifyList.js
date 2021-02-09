@@ -15,7 +15,7 @@ import { SpotifyApiContext, Playlist, PlaylistTracks, Artist } from 'react-spoti
 
 const Container=styled.div`
 overflow:scroll;
-max-height:60vh;
+max-height:100%;
 `
 
 
@@ -58,14 +58,7 @@ return (
 
                             return (
                                 <Segment inverted>
-                                    
-                                    <Playlist id={props.selected.playlist.split(':')[2]}>
-                                        {
-                                            playlist => {
-                                             return playlist.data ? <h4>Playlist Name: {playlist.data.name}</h4> : null
-                                            }
-                                        }
-                                    </Playlist>
+
 
                                     Songs:
                                     <List divided inverted relaxed>

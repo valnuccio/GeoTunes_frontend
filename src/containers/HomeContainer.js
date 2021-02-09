@@ -21,12 +21,15 @@ width:20vw;
 
 
 `
- const Page = styled.div`
- height:100%;
- width:100%;
+ const AltContainer = styled.div`
  display:flex;
- flex-direction:column;
+ justify-content:center;
  position:relative;
+ width:100%;
+ height:90%;
+ margin-top:30vh;
+ 
+ // background: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
  `
 
  
@@ -47,7 +50,7 @@ display:flex;
 justify-content:center;
 position:relative;
 width:100%;
-
+height:90%;
 // background: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
 `
 
@@ -56,7 +59,7 @@ display:flex;
 flex-direction:column;
 position:absolute;
 left:10px;
-height:auto;
+height:100%;
 justify-content: flex-start;
 width:25vw;
 
@@ -91,6 +94,7 @@ const HomeContainer = (props) =>{
         setUpdatedProfile(foundProfile) 
     })
     document.body.style.height="1400px"
+    
     } 
 
    
@@ -146,11 +150,11 @@ const previewRoute = (id) => {
 
      <>
        
-         <Container1> 
+         
                 
                 {token?
                 
-                 
+                <Container1> 
                         <>
                         <Container2>
                             <ImageContainer>
@@ -163,7 +167,7 @@ const previewRoute = (id) => {
                          
                           
                             <Container3>
-                                <HorizontalNav user={props.user} logOutHandler={props.logOutHandler}/>
+                                <HorizontalNav home={true} user={props.user} logOutHandler={props.logOutHandler}/>
                                 
                                     {playListName?<ShowMap home={true} showMarkers={markers} getData={()=>null} getCords={() => null} resetMap={resetMap}/>:<ViewMap setSelected={setSelectedMini} selected={selected} setPlayRoute={props.setPlayRoute} history={props.history} user={props.user}  logOutHandler={props.logOutHandler}/>}
                                 
@@ -173,19 +177,19 @@ const previewRoute = (id) => {
               
                    
                 
-            
+              </Container1>
 
          :
 
-
-                    <SpotifyAuthScreen/>
-
+                <AltContainer>
+                        <SpotifyAuthScreen/>
+                  </AltContainer>
 
 
             }
             
            
-            </Container1>
+            
             
             <Footer/>
         </>

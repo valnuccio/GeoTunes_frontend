@@ -36,9 +36,9 @@ const Nav = (props) => {
 const [distance, setDistance] = useState(null)
 
 useEffect(()=>{
-setDistance(props.distance)
-},[props.disance])
-// console.log(props.user)
+
+},[props.duration])
+
 
   return(
      
@@ -92,13 +92,13 @@ setDistance(props.distance)
 
 
 
-            <StyledNavLink to={'/create'}>
+            {/* <StyledNavLink to={'/create'}>
               {!props.createMode ? 
                   <StyledButton>Create Path</StyledButton> 
                   :
                   <StyledButton onClick={props.createPath}> Submit Path</StyledButton>
               }
-            </StyledNavLink>
+            </StyledNavLink> */}
 
             
             <Segment inverted>
@@ -131,19 +131,19 @@ setDistance(props.distance)
        
        </> :
         <>
-        <StyledNavLink to={'/home'}>
+        {/* <StyledNavLink to={'/home'}>
             <StyledButton>Home</StyledButton>
-        </StyledNavLink>
+        </StyledNavLink> */}
          <Segment inverted>
          <Header as='h2' icon='map pin' content='Total Distance' />
      </Segment>
 
-     <p>{distance}</p>    
+     <p>{props.distance} miles</p>    
 
 
 <StyledNavLink to={'/create'}>
 {!props.createMode ? 
-   <StyledButton>Create Path</StyledButton> 
+   null
    :
    <StyledButton onClick={props.createPath}> Submit Path</StyledButton>
 }
@@ -151,9 +151,9 @@ setDistance(props.distance)
 
 
 <Segment inverted>
- <Header as='h2' icon='heartbeat' content='Favorite Routes' />
+ <Header as='h2' icon='heartbeat' content='Total Duration' />
 </Segment>
-<p>{`${parseFloat(distance) * 20}` } minutes</p>
+<p>{props.duration} minutes walking</p>
 </>
        
        

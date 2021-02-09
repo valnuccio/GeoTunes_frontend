@@ -50,7 +50,7 @@ width:auto;
 
 const ShowMap = (props) => {
     const [markers, setMarkers] = useState([]);
-    const [isDraggable, setDrag] = useState(false);
+    // const [isDraggable, setDrag] = useState(false);
    
    
    
@@ -65,10 +65,10 @@ const ShowMap = (props) => {
     }, [props.showMarkers])
 
     // listening for changes in if the markers are draggable
-    useEffect(() => {
-        setDrag(props.draggableVal)
+    // useEffect(() => {
+    //     setDrag(props.draggableVal)
 
-    }, [props.draggableVal])
+    // }, [props.draggableVal])
  
     const mapContainerStyle = {
 
@@ -180,7 +180,7 @@ console.log(props)
                 center={center} //defined above
                 zoom={12}
                 options={options} //defined above
-                
+                draggable={props.isDraggable}
                 onLoad={onMapLoad} //defined above
             
                    
@@ -221,6 +221,7 @@ console.log(props)
                    places={markers}
                     getCords ={props.getCords}
                     getData={props.getData}
+                    
                     /> : null} 
             
              

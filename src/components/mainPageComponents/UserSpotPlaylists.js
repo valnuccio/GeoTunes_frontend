@@ -14,8 +14,8 @@ import "@reach/combobox/styles.css";
 
 
 const UserSpotPlaylists = (props) =>{
-    const [selectedPlaylist, setSelectedPlaylist] = useState(null);
-    const [name, setName] = useState('');
+  
+
 
 
     return(
@@ -42,11 +42,11 @@ const UserSpotPlaylists = (props) =>{
                                             fluid
                                             search
                                             selection
-                                            onChange = {(e, data) => setSelectedPlaylist(data.value)}
+                                            onChange = {(e, data) => props.setSelectedPlaylist(data.value)}
                                         />
                                         <Input
-                                            onChange = {(e) => setName(e.target.value)}
-                                            value={name}
+                                            onChange = {(e) => props.setName(e.target.value)}
+                                            value={props.name}
                                             label={{ icon: 'headphones' }}
                                             labelPosition='right corner'
                                             placeholder='Name your Play Route...'
@@ -64,6 +64,7 @@ const UserSpotPlaylists = (props) =>{
                     </UserPlaylists>
                             
                 </SpotifyApiContext.Provider> 
+                
         </>
     )
 }
