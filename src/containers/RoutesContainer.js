@@ -65,6 +65,7 @@ border-top-right-radius:2%;
 const RoutesContainer = (props) =>{
     const [token, setToken] = useState(null)
     const [updatedProfile, setUpdatedProfile] = useState(null);
+    const [user, setUser] = useState(props.user.user)
     
     const prepPinRender = (prd) => {
         return prd.pins.map(pin => ({lat: pin.lat, lng: pin.lng}))
@@ -163,6 +164,16 @@ const RoutesContainer = (props) =>{
       
          
           , [token])
+
+
+         useEffect(()=>{
+            fetch(getUser, {
+                method: 'GET',
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+              })
+                .then((r) => r.json())
+                .then((user) => setUser(user.user));
+          },[])
     
     const [isDraggable, toggle] = useToggle(false);
       
@@ -183,14 +194,14 @@ const RoutesContainer = (props) =>{
                             {updatedProfile && routeObj? <Nav page={'show'} token={token} selected={routeObj} createMode={false}  user={updatedProfile} distance={distance} duration={duration}/> :null}
                            {/* {routeObj.playlist && token? <SpotifyList token={props.token} selected={routeObj}/>:null} */}
                            
-                           <UpdateRouteToggleButton toggle={toggle} patch={patchRequest} routeID={props.routerID} user={props.user.user} cords={newArray} /> 
+                           <UpdateRouteToggleButton toggle={toggle} patch={patchRequest} routeID={props.routerID} user={user} cords={newArray} /> 
                            {routeObj.playlist? <GeoPlayer playlist = {routeObj.playlist}/>:null}
                          </Container2> 
 
                          
                           
                             <Container3>
-                                <HorizontalNav home={false} user={updatedProfile} logOutHandler={props.logOutHandler}/>
+                                <HorizontalNav home={false} user={user} logOutHandler={props.logOutHandler}/>
                                 
                                     {toggle?<CreateMap setMarkers={(e)=>setMarkers(e)} getData={getData} markers={markers}/> :<ShowMap showMarkers={markers} getData={getData} getCords={() => null} />}
                                     <DirectionsRendered/>
