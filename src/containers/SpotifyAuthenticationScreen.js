@@ -53,7 +53,7 @@ const SpotifyAuthScreen=()=>{
                 <br></br><br></br><br></br>
                 <SpotifyAuth
                         title={'Click Here to Register Spotify'}
-                        redirectUri={'https://geotunes-frontent.herokuapp.com/home'}
+                        redirectUri={'https://geotunes-frontend.herokuapp.com/home'}
                         clientID={'7699a750048847108551359ed7981d8d'}
                         scopes={[
                             'streaming', 
