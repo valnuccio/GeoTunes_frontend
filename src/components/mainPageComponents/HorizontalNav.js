@@ -26,12 +26,27 @@ const StyledContainer2=styled.div`
 display:flex;
 width:100%;
 height:40%;
+justify-content:flex-end
+background: rgba(248, 248, 248, 0.5);
+
+
+
+
+`
+const StyledContainer3=styled.div`
+
+display:flex;
+width:100%;
+
+height:100%
 justify-content:space-between;
+justify-content:flex-end;
 background: rgba(248, 248, 248, 0.5);
 
 
 
 `
+
 const ButtonContainer=styled.div`
 width:20vw;
 display:flex;
@@ -63,7 +78,7 @@ const HorizontalNav = (props) =>{
         
         <StyledContainer>
             <StyledContainer2>
-            
+            <StyledContainer3>
         <StyledNavLink to={'/home'}>
             <ButtonContainer>
             {props.home? null :
@@ -92,6 +107,7 @@ const HorizontalNav = (props) =>{
                                     <ButtonContainer>
                                         <Button onClick = {props.logOutHandler}> Sign out</Button>
                                      </ButtonContainer> 
+                     </StyledContainer3>
                 </StyledContainer2>
              </StyledContainer>
          </>
