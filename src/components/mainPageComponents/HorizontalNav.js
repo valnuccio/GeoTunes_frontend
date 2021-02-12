@@ -17,24 +17,43 @@ height:20vh;
 justify-content:flex-end;
 
 
+
+`
+
+
+const StyledContainer2=styled.div`
+
+display:flex;
+width:100%;
+height:40%;
+justify-content:space-between;
+background: rgba(248, 248, 248, 0.5);
+
+
+
 `
 const ButtonContainer=styled.div`
 width:20vw;
-margin-left:7vw;
+display:flex;
+justify-content:center;
+align-items:center;
 
 `
 
 const StyledNavLink = styled(NavLink)`
 
-
-
+display:flex;
+alignItems:center;
+justify-content:center;
 `
 
 const StyledButton = styled(Button)`
-width:100%;
+display:flex;
+justify-content:center;
 
-margin:5%;
+
 `
+
 
 const HorizontalNav = (props) =>{
 
@@ -43,10 +62,15 @@ const HorizontalNav = (props) =>{
         <>  
         
         <StyledContainer>
-            {props.home? null :
+            <StyledContainer2>
+            
         <StyledNavLink to={'/home'}>
-            <StyledButton>Home</StyledButton>
-        </StyledNavLink>}
+            <ButtonContainer>
+            {props.home? null :
+                <StyledButton>Home</StyledButton>
+            }
+            </ButtonContainer>
+        </StyledNavLink>
 
 
          <StyledNavLink to={'/create'}>
@@ -68,6 +92,7 @@ const HorizontalNav = (props) =>{
                                     <ButtonContainer>
                                         <Button onClick = {props.logOutHandler}> Sign out</Button>
                                      </ButtonContainer> 
+                </StyledContainer2>
              </StyledContainer>
          </>
     )

@@ -69,6 +69,7 @@ width:25vw;
 const Container3 = styled.div`
 position:absolute;
 right:10px;
+margin-top:20vh;
 `
 
 
@@ -155,6 +156,7 @@ const previewRoute = (id) => {
                 {token?
                 
                 <Container1> 
+                    <HorizontalNav home={true} user={props.user} logOutHandler={props.logOutHandler}/>
                         <>
                         <Container2>
                             <ImageContainer>
@@ -167,7 +169,7 @@ const previewRoute = (id) => {
                          
                           
                             <Container3>
-                                <HorizontalNav home={true} user={props.user} logOutHandler={props.logOutHandler}/>
+                                
                                 
                                     {playListName?<ShowMap home={true} showMarkers={markers} getData={()=>null} getCords={() => null} resetMap={resetMap}/>:<ViewMap setSelected={setSelectedMini} selected={selected} setPlayRoute={props.setPlayRoute} history={props.history} user={props.user}  logOutHandler={props.logOutHandler}/>}
                                 

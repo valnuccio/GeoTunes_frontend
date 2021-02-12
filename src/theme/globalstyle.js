@@ -36,7 +36,7 @@ body {
 
   .ui.button {
     background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
-    width:100%;
+    width:60%;
     height:5vh;
   } 
 
@@ -44,7 +44,10 @@ body {
     height:100%;
     width:100%;
     position:relative;
-    
+    background: rgba(92, 177, 220, 1.0);
+background: -webkit-radial-gradient(center, rgba(92, 177, 220, 1.0), rgba(24, 10, 18, 1.0));
+background: -moz-radial-gradient(center, rgba(92, 177, 220, 1.0), rgba(24, 10, 18, 1.0));
+background: radial-gradient(ellipse at center, rgba(92, 177, 220, 1.0), rgba(24, 10, 18, 1.0));
    
     
   }
