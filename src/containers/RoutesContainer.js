@@ -160,7 +160,7 @@ const RoutesContainer = (props) =>{
               
               setUpdatedProfile(foundProfile) 
           })
-          document.body.style.height="1400px"
+          document.body.style.height="1600px"
           } 
       
          

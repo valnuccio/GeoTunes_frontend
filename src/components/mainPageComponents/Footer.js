@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
-background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+
+background: radial-gradient(circle, rgba(121,121,121,0.8393732492997199) 0%, rgba(0,0,0,1) 100%);
 position:absolute;
 bottom:0%;
 width:100%;

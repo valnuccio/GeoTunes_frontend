@@ -84,6 +84,7 @@ width:25vw;
 const Container3 = styled.div`
 position:absolute;
 right:10px;
+margin-top:20vh;
 `
 
 
@@ -189,6 +190,7 @@ const CreateContainer = (props) => {
         <>
         <Page>
         <Container1>
+        <HorizontalNav home={false} logOutHandler={props.logOutHandler} createPath={createPath} createMode={true}/>
            {spotToken? 
            <>
            <Container2>
@@ -218,7 +220,7 @@ const CreateContainer = (props) => {
 
            <Container3>
 
-                <HorizontalNav home={false} logOutHandler={props.logOutHandler} createPath={createPath} createMode={true}/>
+               
              
             
                 <CreateMap setMarkers={(e)=>setMarkers(e)} markers={markers} getData={getData}/>

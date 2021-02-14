@@ -27,7 +27,9 @@ width:20vw;
  position:relative;
  width:100%;
  height:90%;
- margin-top:30vh;
+//  margin-top:30vh;
+
+align-items:center;
  
  // background: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
  `
@@ -151,7 +153,6 @@ const previewRoute = (id) => {
 
      <>
        
-         
                 
                 {token?
                 

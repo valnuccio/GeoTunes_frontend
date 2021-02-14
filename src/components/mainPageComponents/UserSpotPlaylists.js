@@ -55,7 +55,7 @@ const UserSpotPlaylists = (props) =>{
                                         </>
                                     ) 
                                 } else {
-                                    return <h1>loading</h1>
+                                    return <p>loading</p>
                                 }
                             }
                                 
