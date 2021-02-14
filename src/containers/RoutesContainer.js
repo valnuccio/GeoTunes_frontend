@@ -47,7 +47,8 @@ width:25vw;
 const Container3 = styled.div`
 position:absolute;
 right:10px;
-max-width: 70vw;
+// max-width: 70vw;
+margin-top:20vh;
 
 `
 
@@ -182,7 +183,7 @@ const RoutesContainer = (props) =>{
         <>
 
          <Container1> 
-                
+         <HorizontalNav home={false} user={user} logOutHandler={props.logOutHandler}/>
                 {token?
                 
                  
@@ -201,7 +202,7 @@ const RoutesContainer = (props) =>{
                          
                           
                             <Container3>
-                                <HorizontalNav home={false} user={user} logOutHandler={props.logOutHandler}/>
+                               
                                 
                                     {toggle?<CreateMap setMarkers={(e)=>setMarkers(e)} getData={getData} markers={markers}/> :<ShowMap showMarkers={markers} getData={getData} getCords={() => null} />}
                                     <DirectionsRendered/>
