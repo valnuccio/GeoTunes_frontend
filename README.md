@@ -1,5 +1,5 @@
 
-
+App is hosted on Heroku here: https://geotunes-frontend.herokuapp.com/
 
 ### What is this app?
  This is a React FrontEnd / Rails Back End app for the intended purpose of using direction rendering together with Spotify playlists to create customizatized jogging and walking routes. You will be prompted to authenticate your Spotify acct upon signing in, at which point you may listen to playlist/routes others have made, or create/edit/post your own!
