@@ -136,7 +136,8 @@ console.log(props)
                 <StyledButton onClick={props.resetMap}>Reset Map</StyledButton>
             </ResetButtonDiv>:null
             }
-            <Locate panTo={panTo} options={options} />
+            {props.infoView?null:
+            <Locate panTo={panTo} options={options} />}
             <GoogleMap
                 mapContainerStyle={mapContainerStyle} //defined above
                 center={center} //defined above
