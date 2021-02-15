@@ -16,12 +16,22 @@ import HorizontalNav from '../components/mainPageComponents/HorizontalNav';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-import { Button } from 'semantic-ui-react';
+import { Button, Segment } from 'semantic-ui-react';
 
 
 const StyledNavLink = styled(NavLink)`
 
 
+
+`
+
+const StyledSegment = styled.div`
+background-color:rgb(225, 173, 1, 0.8);
+display:flex;
+justify-content:center;
+padding:30px;
+margin:10px;
+border-radius:5px;
 
 `
 
@@ -215,7 +225,10 @@ const CreateContainer = (props) => {
              </ButtonContainer>
             </StyledNavLink>
         
-        : <h3> Chart a course and Select a Playlist to Continue!</h3>}
+        : 
+        <StyledSegment>
+        <h3> Chart a course and Select a Playlist to Continue!</h3>
+        </StyledSegment>}
            </Container2>
 
            <Container3>

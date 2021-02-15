@@ -33,6 +33,8 @@ const Locate= ({panTo, options}) =>{
                   
             }
         }
+
+        
     //     ()=>{
     //     navigator.geolocation.getCurrentPosition((position)=>{
     //         console.log(position)

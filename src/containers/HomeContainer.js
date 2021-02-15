@@ -27,9 +27,10 @@ width:20vw;
  position:relative;
  width:100%;
  height:90%;
-//  margin-top:30vh;
+//  margin-top:10vh;
+padding:10vh;
 
-align-items:center;
+
  
  // background: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
  `

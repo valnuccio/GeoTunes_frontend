@@ -2,6 +2,7 @@ import React, {useState, useCallback, useRef, useEffect} from 'react';
 import mapStyle from '../../customCss/mapStyle';
 import styled from 'styled-components';
 import {Button} from 'semantic-ui-react';
+import Locate from '../../components/MapComponents/Locate'
 
 import {
     GoogleMap,
@@ -55,10 +56,6 @@ const ShowMap = (props) => {
    
    
 
-    useEffect( () => {
-        document.addEventListener("keydown", () => removePin(), false);
-    }, [])
-
     // listening for changes in the marker values
     useEffect(() => {
         setMarkers(props.showMarkers)
@@ -99,44 +96,9 @@ const ShowMap = (props) => {
   
 
 
-    const removePin = (e) => {
-        if (document.querySelector('#saveButton')) {
-            //when you are editing them this will save the new route
-            //need to add a patch!
-            setMarkers(current => current.slice(0, -1))
 
-            
-
-
-        }
-    }
-
-
-    // this wasn't working - - - why? must investigate later
-
-    // const onMapClick = useCallback((event) => {
-    //     let counter = 0
-    //     //  no more than 5 points at a time. marker limit
-
-
-    //     if (counter < 5) {
-    //         setMarkers((current)=>[
-    //             ...current,
-    //             {
-    //                 lat: event.latLng.lat(),
-    //                 lng: event.latLng.lng(),
-    //                 time: new Date(),
-    //         },
-    //     ])
-    //     counter += 1
-    
-    //     } else {
-    //         alert('Max 5 Markers')
-    // };
 
     
-    // },[]) ; 
-
     const mapRef = useRef();
 
     const onMapLoad= useCallback((map)=>{
@@ -147,10 +109,10 @@ const ShowMap = (props) => {
 
     // for panning if I want to use it later
 
-    // const panTo = useCallback(({lat, lng})=> {
-    //     mapRef.current.panTo({lat, lng});
-    //     mapRef.current.setZoom(14);
-    // },[]);
+    const panTo = useCallback(({lat, lng})=> {
+        mapRef.current.panTo({lat, lng});
+        mapRef.current.setZoom(14);
+    },[]);
 
  
 
@@ -174,7 +136,7 @@ console.log(props)
                 <StyledButton onClick={props.resetMap}>Reset Map</StyledButton>
             </ResetButtonDiv>:null
             }
-
+            <Locate panTo={panTo} options={options} />
             <GoogleMap
                 mapContainerStyle={mapContainerStyle} //defined above
                 center={center} //defined above

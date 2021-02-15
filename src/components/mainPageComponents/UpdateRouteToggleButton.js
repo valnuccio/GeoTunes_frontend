@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Icon, Label } from 'semantic-ui-react';
 import { getUser, favCreate, playroutes } from '../../railsserver';
+import styled from 'styled-components';
+
+const StyledButton=styled(Button)`
+width:100%;
+position:relative;
+
+`
+
+
 
 const UpdateRouteToggleButton = (props) => {
   const [cords, setCords] = useState(props.cords);
@@ -90,7 +99,7 @@ const UpdateRouteToggleButton = (props) => {
     updatedUser && isRouteMine() ? (
       <>
         {editSaveToggle ? (
-          <Button
+          <StyledButton
             as="div"
             labelPosition="right"
 
@@ -110,15 +119,11 @@ const UpdateRouteToggleButton = (props) => {
 
             </Button>
 
-            <Label
-              as="a"
-              color="blue"
-              pointing="left"
-            />
-          </Button>
+           
+          </StyledButton>
 
         ) : (
-          <Button
+          <StyledButton
             as="div"
             labelPosition="right"
             onClick={() => {
@@ -138,22 +143,15 @@ const UpdateRouteToggleButton = (props) => {
               Save my Route
             </Button>
 
-            <Label
-              as="a"
-              basic
-              color="green"
-              pointing="left"
-            >
-              <Icon name="headphones" />
-            </Label>
-          </Button>
+          
+          </StyledButton>
         )}
 
       </>
     ) : (
       updatedUser && favToggle ? (
 
-        <Button
+        <StyledButton
           onClick={favRoute}
           as="div"
           labelPosition="right"
@@ -162,22 +160,28 @@ const UpdateRouteToggleButton = (props) => {
           <Button
             id="fave-button"
             color="red"
+            style={{ width: '100%', display:'flex', position:'relative', fontSize:'20px', alignItems:'center', justifyContent:'center'}}
           >
-            <Icon
+           <Icon
               id="fave-button"
               name="heart"
+              style={{ position:'absolute', left:'8px', height:'40px', top:'0px', zIndex:'1', display:'flex', alignItems:'center' }}
             />
-            Favorite This Route
+           
+            Favorite
+            
           </Button>
-
-          <Label as="a" basic color="red" pointing="left" id="fave-button">
-            {updatedRoute && updatedRoute.users ? updatedRoute.users.length : null}
+          <div>
+            <Label as="a" basic color="red" pointing="left" id="fave-button" style={{ position:'absolute', right:'0px', height:'40px', top:'0px', zIndex:'1', display:'flex', alignItems:'center' }}>
+            <h4>{updatedRoute && updatedRoute.users ? updatedRoute.users.length : null}</h4>
           </Label>
-        </Button>
+          </div>
+        
+        </StyledButton>
 
       ) : (
 
-        <Button
+        <StyledButton
           onClick={unFavRoute}
           as="div"
           labelPosition="right"
@@ -185,24 +189,30 @@ const UpdateRouteToggleButton = (props) => {
           <Button
             id="fave-button"
             color="red"
+            style={{ width: '100%', display:'flex', position:'relative', fontSize:'20px', alignItems:'center', justifyContent:'center'}}
           >
             <Icon
               id="fave-button"
               name="heart"
+              style={{ position:'absolute', left:'8px', height:'40px', top:'0px', zIndex:'1', display:'flex', alignItems:'center' }}
             />
+           
             Unfavorite This Route
           </Button>
-
+         <div>
           <Label
             as="a"
             basic
             color="red"
             pointing="left"
             id="fave-button"
+            style={{ position:'absolute', right:'0px', height:'40px', top:'0px', zIndex:'1', display:'flex', alignItems:'center' }}
           >
             {updatedRoute && updatedRoute.users ? updatedRoute.users.length : null}
+           
           </Label>
-        </Button>
+        </div>
+        </StyledButton>
       )
     )
   );

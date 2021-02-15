@@ -2,14 +2,15 @@ import React, {useState, useCallback, useRef, useEffect} from 'react';
 
 import { UserPlaylists } from 'react-spotify-api'
 import { SpotifyApiContext } from 'react-spotify-api';
-import { Dropdown, Header, Input  } from 'semantic-ui-react'
-
+import { Dropdown, Header, Input, Segment  } from 'semantic-ui-react'
+import styled from 'styled-components';
 
 
 
 
 
 import "@reach/combobox/styles.css";
+
 
 
 
@@ -36,7 +37,9 @@ const UserSpotPlaylists = (props) =>{
                                 if(plOptions) {
                                     return(
                                         <>
-                                        <Header id='headerPL' as='h2' icon='music' content='Add Playlist and Name Route' />
+                                        <Segment inverted>
+                                            <Header id='headerPL' as='h2' icon='music' content='Add Playlist and Name Route' />
+                                        </Segment>
                                         <Dropdown options= {plOptions}
                                             placeholder='Select Playlist'
                                             fluid

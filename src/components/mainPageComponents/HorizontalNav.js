@@ -27,7 +27,7 @@ display:flex;
 width:100%;
 height:40%;
 justify-content:flex-end
-background: rgba(248, 248, 248, 0.5);
+background-color:rgb(225, 173, 1, 0.8);
 
 
 
@@ -41,7 +41,7 @@ width:100%;
 height:100%
 justify-content:space-between;
 justify-content:flex-end;
-background: rgba(248, 248, 248, 0.5);
+background-color:rgb(225, 173, 1, 0.8);
 
 
 

@@ -136,7 +136,7 @@ if (!isLoaded) return 'Loading Maps';
             </GoogleMap>
         </div>
          <Search  panTo={panTo} />
-         <Locate panTo={panTo}/> 
+         {/* <Locate panTo={panTo}/>  */}
          </>
     );
 }

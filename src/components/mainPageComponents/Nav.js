@@ -3,6 +3,7 @@ import { Button, List, Icon, Segment, Header} from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import SpotifyList from 'styled-components';
+import { useHistory } from "react-router-dom"
 
 const StyledMenu = styled.div`
 display:flex;
@@ -14,7 +15,7 @@ margin-bottom:40px;
 `
 
 const ListContainer=styled.div`
-overflow:scroll;
+
 `
 
 const StyledButton = styled(Button)`
@@ -29,15 +30,39 @@ const StyledNavLink = styled(NavLink)`
 
 `
 
+const EmptyContainer = styled.div`
+background:rgb(245,245,245);
+height:10vh;
+border-radius:5px;
+display:flex;
+justify-content:center;
+padding:5px;
+align-items:center;
+`
+
+const Container=styled.div`
+max-height:30vh;
+overflow:scroll;
+background:rgb(245, 245, 245);
+height:25vh;
+`
 
 
 const Nav = (props) => {
 
 const [distance, setDistance] = useState(null)
+let history = useHistory();
 
 useEffect(()=>{
 
 },[props.duration])
+
+
+ 
+  
+    
+      
+    
 
 
   return(
@@ -61,32 +86,40 @@ useEffect(()=>{
 
               {props.user.user.play_routes.length >0? (
                     
-                    
+                    <Container>
                     <List>
-                            <div className="ui raised segments">
+                            
                                 {
 
                                         props.user.user.play_routes.map( (r, i) => {
                                         return(
-                                            <ListContainer key={i} className="ui segment">
-                                                <List.Item id={`${r.id}`} key={`${r.id}`} onClick={(e) => props.previewRoute(e.target.id)} key={r.id} >
-                                                    <Icon id={`${r.id}`} key={`${r.id}`}name='headphones' />
-                                                    <List.Content>
+                                            <ListContainer key={i} className='ui segment'  style={{width:'100%',  padding:'3px'}}>
+                                                <List.Item id={`${r.id}`} key={`${r.id}`} onClick={(e) => props.previewRoute(e.target.id)} key={r.id} style={{width:'100%', height:'100%', display:'flex'}}>
+                                                    <Icon id={`${r.id}`} key={`${r.id}`}name='headphones' style={{width:'25%'}}/>
+                                                    <List.Content style={{width:'75%', display:'flex', justifyContent:'space-between'}}>
                                                         <List.Header id={`${r.id}`} key={`${r.id}`}>{r.name}</List.Header>
-                                                    
+                                                        <Button onClick={()=>
+                                                            history.push(`/routes/${r.id}`)
+                                                           
+                                                            } style={{width:'25%', display:'flex', justifyContent:'center'}}>Go</Button>
                                                     </List.Content>
                                                 </List.Item>
                                             </ListContainer>
                                         ) 
                                     })
                                 }
-                            </div>
+                            
 
 
-                    </List>) 
+                    </List>
+                    </Container>) 
                     : 
                     
-                    (<h3>No routes yet</h3>)
+                    (
+                        <EmptyContainer>
+                    <h4>Looks like you don't have any routes yet</h4>
+                    </EmptyContainer>
+                    )
                 }
         </div>
 
@@ -105,18 +138,19 @@ useEffect(()=>{
                 <Header as='h2' icon='heartbeat' content='Favorite Routes' />
             </Segment>
                     {props.user.user.routes.length>0? ( 
+                        <Container>
                      <List>
-                    <div class="ui raised segments">
+                    
                     {
                             
                         props.user.user.routes.map( (r, i) => {
                             return(
-                                <ListContainer key={i} class="ui segment">
-                                <List.Item id={`${r.id}`} key={`${r.id}`}onClick={(e) => props.previewRoute(e.target.id)} key={r.id} >
-                                    <Icon id={`${r.id}`} name='headphones' />
-                                    <List.Content>
+                                <ListContainer key={i} className="ui segment" style={{width:'100%',  padding:'3px'}}>
+                                <List.Item id={`${r.id}`} key={`${r.id}`}onClick={(e) => props.previewRoute(e.target.id)} key={r.id} style={{width:'100%', height:'100%', display:'flex'}}>
+                                    <Icon id={`${r.id}`} name='headphones' style={{width:'25%'}}/>
+                                    <List.Content style={{width:'75%', display:'flex', justifyContent:'space-between'}}>
                                         <List.Header id={`${r.id}`} key={`${r.id}`}>{r.name}</List.Header>
-                                    
+                                        <Button onClick={()=>history.push(`/routes/${r.id}`)} style={{width:'25%', display:'flex', justifyContent:'center'}}>Go</Button>
                                      </List.Content>
                                 </List.Item>
                                 </ListContainer>
@@ -124,10 +158,12 @@ useEffect(()=>{
                             ) 
                         })
                     }
-                    </div>
-                    </List>):(
-
-                    <p> Looks like you don't have any routes Favorited yet!</p>)}
+                    
+                    </List>
+                    </Container>):(
+                        <EmptyContainer>
+                    <h4> Looks like you don't have any favorite routes yet!</h4>
+                    </EmptyContainer>)}
        
        </> :
         <>
@@ -137,8 +173,9 @@ useEffect(()=>{
          <Segment inverted>
          <Header as='h2' icon='map pin' content='Total Distance' />
      </Segment>
-
-     <p>{props.distance} miles</p>    
+        <EmptyContainer>
+     <h4>{props.distance} miles</h4>  
+     </EmptyContainer>  
 
 
 <StyledNavLink to={'/create'}>
@@ -153,7 +190,9 @@ useEffect(()=>{
 <Segment inverted>
  <Header as='h2' icon='heartbeat' content='Total Duration' />
 </Segment>
-<p>{props.duration} minutes walking</p>
+<EmptyContainer>
+<h4>{props.duration} minutes walking</h4>
+</EmptyContainer>
 </>
        
        

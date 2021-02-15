@@ -40,7 +40,7 @@ left:10px;
 height:100%;
 justify-content: flex-start;
 width:25vw;
-
+justify-content:space-around;
 
 `
 
@@ -203,8 +203,8 @@ const RoutesContainer = (props) =>{
                           
                             <Container3>
                                
-                                
-                                    {toggle?<CreateMap setMarkers={(e)=>setMarkers(e)} getData={getData} markers={markers}/> :<ShowMap showMarkers={markers} getData={getData} getCords={() => null} />}
+                                {console.log(isDraggable, 'toggle value')}
+                                    {isDraggable?<CreateMap setMarkers={(e)=>setMarkers(e)} getData={getData} markers={markers}/> :<ShowMap showMarkers={markers} getData={getData} getCords={() => null} />}
                                     <DirectionsRendered/>
                             </Container3>
                             
