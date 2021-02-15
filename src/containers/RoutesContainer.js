@@ -5,7 +5,6 @@ import GeoPlayer from '../components/mainPageComponents/GeoPlayer';
 import useToggle from 'react-use-toggle';
 import Nav from '../components/mainPageComponents/Nav';
 import UpdateRouteToggleButton from '../components/mainPageComponents/UpdateRouteToggleButton';
-import SpotifyAuthButton from '../components/mainPageComponents/SpotifyAuthButton';
 import { getUser} from '../railsserver';
 import styled from 'styled-components';
 import mainLogo from '../../src/images/mainLogo.png';
@@ -36,11 +35,11 @@ const Container2 = styled.div`
 display:flex;
 flex-direction:column;
 position:absolute;
-left:10px;
+left:0px;
 height:100%;
 justify-content: flex-start;
 width:25vw;
-justify-content:space-around;
+
 
 `
 
@@ -96,7 +95,7 @@ const RoutesContainer = (props) =>{
         return z.reduce((a,b) => a+b)
         } else {
           
-            return parseFloat(obj.routes[0].legs[0].distance.text)
+            return parseFloat(obj.routes[0].legs[0].distance.text).toFixed(2)
         }
      
     }
@@ -107,7 +106,7 @@ const RoutesContainer = (props) =>{
             return z.reduce((a,b) => a+b)
 
         } else {
-            return parseFloat(obj.routes[0].legs[0].duration.text)
+            return parseInt(obj.routes[0].legs[0].duration.text)
         }
      
     }

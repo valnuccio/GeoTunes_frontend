@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 
 import 'react-spotify-auth/dist/index.css';
@@ -9,7 +9,7 @@ import styled from 'styled-components';
 
 
 import { List, Segment,} from 'semantic-ui-react';
-import { SpotifyApiContext, Playlist, PlaylistTracks, Artist } from 'react-spotify-api';
+import { SpotifyApiContext, PlaylistTracks, Artist } from 'react-spotify-api';
 
 
 

@@ -1,7 +1,6 @@
 import React from 'react';
 
 import styled from 'styled-components';
-import {Globe2Outline} from '@styled-icons/evaicons-outline/';
 
 
 
@@ -21,9 +20,6 @@ width:100vw;
 align-items:top
 `
 
-const Icon = styled(Globe2Outline)`
-  height:100px;
-`
 
 
 const Container=styled.div`

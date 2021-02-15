@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import SpotifyPlayer from 'react-spotify-web-playback';
-import { Playlist, PlaylistTracks, Artist } from 'react-spotify-api';
-import { SpotifyApiContext } from 'react-spotify-api';
-import { List, Segment } from 'semantic-ui-react';
-import SpotifyList from '../mainPageComponents/SpotifyList'
+
+import SpotifyList from '../mainPageComponents/SpotifyList';
+import styled from 'styled-components';
+
+const Container = styled.div`
+margin:20px;
+`
 
 const GeoPlayer = (props) => {
 
@@ -21,7 +24,7 @@ const GeoPlayer = (props) => {
             
         token ? 
              (
-            <>
+            <Container>
                     
                         <SpotifyPlayer
                             uris={[currentPL]}
@@ -116,7 +119,7 @@ const GeoPlayer = (props) => {
                         
                         
                          */}
-                    </>
+                    </Container>
             )
             :
             (

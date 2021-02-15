@@ -16,7 +16,7 @@ import HorizontalNav from '../components/mainPageComponents/HorizontalNav';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-import { Button, Segment } from 'semantic-ui-react';
+import { Button} from 'semantic-ui-react';
 
 
 const StyledNavLink = styled(NavLink)`
@@ -83,7 +83,7 @@ const Container2 = styled.div`
 display:flex;
 flex-direction:column;
 position:absolute;
-left:10px;
+left:0px;
 height:auto;
 justify-content: flex-start;
 width:25vw;

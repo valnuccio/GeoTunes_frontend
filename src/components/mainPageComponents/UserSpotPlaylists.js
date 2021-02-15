@@ -1,9 +1,9 @@
-import React, {useState, useCallback, useRef, useEffect} from 'react';
+import React from 'react';
 
 import { UserPlaylists } from 'react-spotify-api'
 import { SpotifyApiContext } from 'react-spotify-api';
 import { Dropdown, Header, Input, Segment  } from 'semantic-ui-react'
-import styled from 'styled-components';
+
 
 
 

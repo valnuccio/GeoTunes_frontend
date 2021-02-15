@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Button, List, Icon, Segment, Header} from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import SpotifyList from 'styled-components';
+
 import { useHistory } from "react-router-dom"
 
 const StyledMenu = styled.div`
@@ -12,6 +12,7 @@ justify-content:space-between;
 width:20vw;
 margin-top:40px;
 margin-bottom:40px;
+margin-left:5px;
 `
 
 const ListContainer=styled.div`
@@ -51,11 +52,15 @@ height:25vh;
 const Nav = (props) => {
 
 const [distance, setDistance] = useState(null)
+const [duration, setDuration] = useState(null)
 let history = useHistory();
 
 useEffect(()=>{
+    
 
-},[props.duration])
+    setDistance(props.distance)
+    setDuration(props.duration)
+},[props.duration, props.distance])
 
 
  
@@ -94,7 +99,7 @@ useEffect(()=>{
                                         props.user.user.play_routes.map( (r, i) => {
                                         return(
                                             <ListContainer key={i} className='ui segment'  style={{width:'100%',  padding:'3px'}}>
-                                                <List.Item id={`${r.id}`} key={`${r.id}`} onClick={(e) => props.previewRoute(e.target.id)} key={r.id} style={{width:'100%', height:'100%', display:'flex'}}>
+                                                <List.Item id={`${r.id}`} key={`${r.id}`} onClick={(e) => props.previewRoute(e.target.id)} style={{width:'100%', height:'100%', display:'flex'}}>
                                                     <Icon id={`${r.id}`} key={`${r.id}`}name='headphones' style={{width:'25%'}}/>
                                                     <List.Content style={{width:'75%', display:'flex', justifyContent:'space-between'}}>
                                                         <List.Header id={`${r.id}`} key={`${r.id}`}>{r.name}</List.Header>
@@ -146,7 +151,7 @@ useEffect(()=>{
                         props.user.user.routes.map( (r, i) => {
                             return(
                                 <ListContainer key={i} className="ui segment" style={{width:'100%',  padding:'3px'}}>
-                                <List.Item id={`${r.id}`} key={`${r.id}`}onClick={(e) => props.previewRoute(e.target.id)} key={r.id} style={{width:'100%', height:'100%', display:'flex'}}>
+                                <List.Item id={`${r.id}`} key={`${r.id}`}onClick={(e) => props.previewRoute(e.target.id)} style={{width:'100%', height:'100%', display:'flex'}}>
                                     <Icon id={`${r.id}`} name='headphones' style={{width:'25%'}}/>
                                     <List.Content style={{width:'75%', display:'flex', justifyContent:'space-between'}}>
                                         <List.Header id={`${r.id}`} key={`${r.id}`}>{r.name}</List.Header>
@@ -174,7 +179,7 @@ useEffect(()=>{
          <Header as='h2' icon='map pin' content='Total Distance' />
      </Segment>
         <EmptyContainer>
-     <h4>{props.distance} miles</h4>  
+     <h4>{distance} miles</h4>  
      </EmptyContainer>  
 
 
@@ -191,7 +196,7 @@ useEffect(()=>{
  <Header as='h2' icon='heartbeat' content='Total Duration' />
 </Segment>
 <EmptyContainer>
-<h4>{props.duration} minutes walking</h4>
+<h4>{duration} minutes walking</h4>
 </EmptyContainer>
 </>
        

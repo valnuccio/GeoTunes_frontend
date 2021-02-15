@@ -6,6 +6,7 @@ import styled from 'styled-components';
 const StyledButton=styled(Button)`
 width:100%;
 position:relative;
+margin:5px;
 
 `
 

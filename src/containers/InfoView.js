@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom'
 
 import {Button } from 'semantic-ui-react';
@@ -14,11 +14,7 @@ const InfoView = (props) => {
 
     
 
-    const [spotToken, setSpotToken] = useState(localStorage.getItem('spotifyAuthToken'));
     
-    useEffect(() => {
-        setSpotToken(localStorage.getItem('spotifyAuthToken'));
-    }, [])
 
 
     return(

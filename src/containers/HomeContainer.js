@@ -61,7 +61,7 @@ const Container2 = styled.div`
 display:flex;
 flex-direction:column;
 position:absolute;
-left:10px;
+left:0px;
 height:100%;
 justify-content: flex-start;
 width:25vw;

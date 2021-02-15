@@ -11,9 +11,9 @@ z-index:1;
 
 const Locate= ({panTo, options}) =>{
 
-    const errorCallback=()=> {
-      console.log(navigator.GeolocationPositionError.code)
-      };
+    // const errorCallback=()=> {
+    //   console.log(navigator.GeolocationPositionError.code)
+    //   };
 
 
     return (

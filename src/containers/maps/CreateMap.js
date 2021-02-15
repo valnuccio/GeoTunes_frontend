@@ -1,4 +1,4 @@
-import React, {useState, useCallback, useRef, useEffect} from 'react';
+import React, {useCallback, useRef} from 'react';
 import mapStyle from '../../customCss/mapStyle'
 
 
@@ -6,26 +6,15 @@ import {
     GoogleMap,
     useLoadScript,
     Marker,
-    I
+    
 
 } from '@react-google-maps/api';
 
 
-import usePlacesAutoComplete, {
-    getGeocode,
-    getLatLng,
-} from "use-places-autocomplete";
 import MapsDirectionsRenderer from './MapsDirectionsRenderer'
-import { playroutes as playRoutes } from '../../railsserver'
 
 
-import{
-    Combobox,
-    ComboboxInput,
-    ComboboxPopover,
-    ComboboxList,
-    ComboboxOption,
-} from "@reach/combobox";
+
 
 import "@reach/combobox/styles.css";
 import styled from 'styled-components';
@@ -65,7 +54,7 @@ const CreateMap = (props) =>{
 document.addEventListener("keydown", (e) => removePin(e), false);
 
 
- const [selected, setSelected] = useState(null);
+
 
 
     const removePin = ({ code }) => {

@@ -2,7 +2,6 @@ import React, {useState, useCallback, useRef, useEffect} from 'react';
 import mapStyle from '../../customCss/mapStyle';
 import styled from 'styled-components';
 import {Button} from 'semantic-ui-react';
-import Locate from '../../components/MapComponents/Locate'
 
 import {
     GoogleMap,
@@ -74,6 +73,7 @@ const ShowMap = (props) => {
        
         width: props.infoView? '30vw':'70vw',
         height: props.infoView ? '30vh' : '100vh',
+        borderRadius:'3%'
     };
 
     const center = props.infoView ? ({
@@ -109,10 +109,10 @@ const ShowMap = (props) => {
 
     // for panning if I want to use it later
 
-    const panTo = useCallback(({lat, lng})=> {
-        mapRef.current.panTo({lat, lng});
-        mapRef.current.setZoom(14);
-    },[]);
+    // const panTo = useCallback(({lat, lng})=> {
+    //     mapRef.current.panTo({lat, lng});
+    //     mapRef.current.setZoom(14);
+    // },[]);
 
  
 
@@ -136,8 +136,8 @@ console.log(props)
                 <StyledButton onClick={props.resetMap}>Reset Map</StyledButton>
             </ResetButtonDiv>:null
             }
-            {props.infoView?null:
-            <Locate panTo={panTo} options={options} />}
+            {/* {props.infoView?null:
+            <Locate panTo={panTo} options={options} />} */}
             <GoogleMap
                 mapContainerStyle={mapContainerStyle} //defined above
                 center={center} //defined above
