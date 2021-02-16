@@ -72,6 +72,8 @@ const ViewMap = (props) => {
         })
     }
 
+    
+
     useEffect(() => {
         //Authorization: `Bearer ${localStorage.getItem('token')}`
         fetch(playRoutes, {
@@ -145,23 +147,26 @@ if (!isLoaded) return 'Loading Maps';
                             anchor: new window.google.maps.Point(15,15),
                         }}
                         onClick={()=>{
+                            
                             props.setSelected(marker);
+                            
                             
                             }}
                         />
                         ))}
+                        
+                        {props.selected? 
 
-                        {props.selected ? 
-                        
-                        
+                    
                         (
                             
                         <StyledInfoWindow 
-                            
+                           
                             position={{lat: props.selected.lat, lng: props.selected.lng }} 
                             onCloseClick={()=>{ 
-                            setSelected(null);  
+                            props.setSelected(null);  
                             }}>
+                                 
                             <div>
                                
                                 <InfoView routeID={props.selected.id} setPlayRoute={props.setPlayRoute} playlist={props.selected.playlist} showMarkers={props.selected.subPins} />
