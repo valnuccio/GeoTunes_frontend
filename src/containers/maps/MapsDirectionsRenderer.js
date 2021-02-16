@@ -67,7 +67,7 @@ function MapDirectionsRenderer(props) {
       directions && (
         <>
         <DirectionsRenderer directions={directions} panel={ document.getElementById('panel') } onDirectionsChanged={() => console.log()} options ={{
-          draggable: true,
+          draggable: false,
           suppressMarkers: true,
           markerOptions: {
             label: 'ahhhhhh',

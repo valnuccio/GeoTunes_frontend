@@ -20,10 +20,10 @@ const SpotifyAuthScreen=()=>{
         <SpotInfoContainer>
             
                 
-                <h3>This application relies heavily on the use of a Spotify Premium Acct </h3>
-                <h3> Please click below to login to your Spotify Acct</h3>
+                <h3><center>This application relies heavily on the use of a Spotify Premium Acct </center></h3>
+                <h3><center>Please click below to login to your Spotify Acct</center></h3>
                 <br></br><br></br><br></br>
-                <SpotifyAuth
+                <center><SpotifyAuth
                         title={'Click Here to Register Spotify'}
                         redirectUri={'https://geotunes-frontend.herokuapp.com/home'}
                         clientID={'7699a750048847108551359ed7981d8d'}
@@ -42,7 +42,7 @@ const SpotifyAuthScreen=()=>{
                         onAccessToken={(token)=> console.log(token)}
                         
                         
-                     />
+                     /></center>
                 
             
             
