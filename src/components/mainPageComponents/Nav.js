@@ -85,7 +85,7 @@ useEffect(()=>{
         <div>
           
                      <Segment inverted>
-                        <Header as='h2' icon='map pin' content='My Routes' />
+                        <Header as='h2' icon='map pin' content='My Routes' style={{display:'flex', justifyContent:'center', width:'100%'}}/>
                     </Segment>
 
 

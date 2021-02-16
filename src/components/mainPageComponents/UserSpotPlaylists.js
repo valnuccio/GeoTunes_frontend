@@ -49,7 +49,7 @@ const UserSpotPlaylists = (props) =>{
                                         />
                                         <Input
                                             onChange = {(e) => props.setName(e.target.value)}
-                                            value={props.name}
+                                            value={props.name? props.name : ''}
                                             label={{ icon: 'headphones' }}
                                             labelPosition='right corner'
                                             placeholder='Name your Play Route...'

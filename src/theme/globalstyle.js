@@ -38,6 +38,11 @@ body {
     background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
     width:60%;
     height:5vh;
+    display:flex;
+    justify-content:center;
+    font-size:100%;
+    align-items:center;
+
   } 
 
   #root{
