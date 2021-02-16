@@ -15,7 +15,7 @@ import UserSpotPlaylists from '../components/mainPageComponents/UserSpotPlaylist
 import HorizontalNav from '../components/mainPageComponents/HorizontalNav';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-
+import InstructionContainer from '../../src/components/mainPageComponents/InstructionContainer'
 import { Button} from 'semantic-ui-react';
 
 
@@ -209,9 +209,6 @@ const CreateContainer = (props) => {
                     <Image src={mainLogo}></Image>
                 </ImageContainer>
 
-
-                <Nav user={props.user} createMode={true} logOutHandler={props.logOutHandler} createPath={createPath} />
-                
                 <UserSpotPlaylists spotToken={spotToken} setSelectedPlaylist={(e)=>setSelectedPlaylist(e)} name={name} setName={(e)=>setName(e)}/> 
                 {markers.length > 0 && name && selectedPlaylist?
        
@@ -229,13 +226,16 @@ const CreateContainer = (props) => {
         <StyledSegment>
         <h3> Chart a course and Select a Playlist to Continue!</h3>
         </StyledSegment>}
+                <Nav user={props.user} createMode={true} logOutHandler={props.logOutHandler} createPath={createPath} />
+                
+           
            </Container2>
 
            <Container3>
 
                
              
-            
+                <InstructionContainer />
                 <CreateMap setMarkers={(e)=>setMarkers(e)} markers={markers} getData={getData}/>
             
             </Container3>

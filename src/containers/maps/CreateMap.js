@@ -29,6 +29,13 @@ width: 70vw;
 
 `
 
+const InstructionContainer=styled.div`
+// background: radial-gradient(circle, rgba(121,121,121,0.8393732492997199) 0%, rgba(0,0,0,1) 100%);
+// position:absolute;
+// top:0px;
+// z-index:-1;
+// height:100px;
+`
 const libraries = ['places'];
 
 const mapContainerStyle = {
@@ -112,8 +119,14 @@ document.addEventListener("keydown", (e) => removePin(e), false);
     return (
         <>
                   <MapDiv>
+                {props.routesContainer? null:(
+                    <>
                 <Search panTo={panTo}/>
-                <Locate panTo={panTo} options={options} />
+                <Locate panTo={panTo} options={options}/>
+                </>
+                )
+                }
+                
                 <GoogleMap
                     mapContainerStyle={mapContainerStyle}
                     center={center}

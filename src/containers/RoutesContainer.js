@@ -11,8 +11,8 @@ import mainLogo from '../../src/images/mainLogo.png';
 import HorizontalNav from '../components/mainPageComponents/HorizontalNav';
 import DirectionsRendered from '../components/MapComponents/DirectionsRendered';
 import Footer from '../components/mainPageComponents/Footer';
-import CreateMap from '../containers/maps/CreateMap'
-
+import CreateMap from '../containers/maps/CreateMap';
+import InstructionContainer from '../components/mainPageComponents/InstructionContainer';
 
 const Container1 = styled.div`
 display:flex;
@@ -202,8 +202,14 @@ const RoutesContainer = (props) =>{
                           
                             <Container3>
                                
-                                {console.log(isDraggable, 'toggle value')}
-                                    {isDraggable?<CreateMap setMarkers={(e)=>setMarkers(e)} getData={getData} markers={markers}/> :<ShowMap showMarkers={markers} getData={getData} getCords={() => null} />}
+                                    
+                                    {isDraggable?
+                                    <>
+                                    <InstructionContainer/>
+                                    <CreateMap setMarkers={(e)=>setMarkers(e)} getData={getData} markers={markers} routesContainer={true}/> 
+                                    </>
+                                    
+                                    :<ShowMap showMarkers={markers} getData={getData} getCords={() => null} />}
                                     <DirectionsRendered/>
                             </Container3>
                             

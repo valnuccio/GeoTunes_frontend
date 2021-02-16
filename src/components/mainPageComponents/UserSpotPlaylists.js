@@ -38,7 +38,7 @@ const UserSpotPlaylists = (props) =>{
                                     return(
                                         <>
                                         <Segment inverted>
-                                            <Header id='headerPL' as='h2' icon='music' content='Add Playlist and Name Route' />
+                                            <Header id='headerPL' as='h2' icon='music' content='Select Playlist and Name Route' />
                                         </Segment>
                                         <Dropdown options= {plOptions}
                                             placeholder='Select Playlist'
