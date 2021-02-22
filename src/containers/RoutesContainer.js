@@ -90,9 +90,27 @@ const RoutesContainer = (props) =>{
 
     const distanceMath = (obj) => {
         if (obj.routes[0].legs.length>1){
+        let textValues= obj.routes[0].legs.map((ele) => ele.distance.text)
+         
         
-        let z= obj.routes[0].legs.map((ele) => parseFloat(ele.distance.text))
-        return z.reduce((a,b) => a+b)
+        let converted = textValues.map((text)=>{
+            if(text.slice(-2)==='ft'){
+                let footValue = parseFloat(text)
+                
+                let mileValue = footValue/5280
+
+                return parseFloat(mileValue)
+            } else {
+               return parseFloat(text)
+            }
+        }
+        )            
+
+   
+    
+        return converted.reduce((a,b) => a+b).toFixed(2)
+
+
         } else {
           
             return parseFloat(obj.routes[0].legs[0].distance.text).toFixed(2)
